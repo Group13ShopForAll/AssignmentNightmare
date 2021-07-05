@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".Homepagee">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="1300pt"
+                android:layout_height="150pt"
+                android:background="@drawable/top_bg" />
+
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10pt"
+                android:width="130pt"
+                android:background="@drawable/input_effect"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="13dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+
+
+            <TextView
+                android:layout_width="1800pt"
+                android:layout_height="120pt"
+                android:layout_below="@id/search"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bigboxx" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="450dp"
+                android:layout_height="196dp"
+                android:layout_below="@id/search"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="12dp"
+                app:cardUseCompatPadding="true">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/carousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="196dp"
+                    android:background="@color/black"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="@integer/material_motion_duration_medium_2"
+                    app:iss_error_image="@drawable/error"
+                    app:iss_period="4000"
+                    app:iss_placeholder="@drawable/banner1"
+                    app:iss_selected_dot="@drawable/default_selected_dot"
+                    app:iss_unselected_dot="@drawable/default_unselected_dot" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/divide"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/card"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/darker_gray" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemsrcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divide"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                app:columnCount="2" />
+
+            <View
+                android:id="@+id/divide1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/itemsrcv"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="85dp"
+                android:background="@android:color/darker_gray" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/botnav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/navicorner"
+        app:menu="@menu/navigationbar"
+        app:itemRippleColor="#BDB76B"
+        app:itemIconTint="@color/icon_color"
+        app:itemTextColor="#BDB76B">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>

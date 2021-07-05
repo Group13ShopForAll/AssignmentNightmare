@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginPage"
+    android:background="@drawable/loginbg2"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+
+
+
+    <!-- box for login -->
+    <TextView
+        android:id="@+id/box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/login"
+        android:width="150pt"
+        android:height="150pt"
+        android:background="@drawable/square" />
+
+    <!-- Email -->
+    <TextView
+        android:layout_width="50pt"
+        android:layout_height="10pt"
+        android:id="@+id/mail"
+        android:text="  Email:"
+        android:layout_alignLeft="@id/logintext"
+        android:layout_below="@id/login"
+        android:textColor="@color/black"
+        android:layout_marginTop="10pt"/>
+
+    <EditText
+        android:id="@+id/logintext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mail"
+        android:background="@drawable/input_effect"
+        android:width="130pt"
+        android:ems="10"
+        android:drawablePadding="13dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/ic_email" />
+
+
+    <TextView
+        android:layout_width="50pt"
+        android:layout_height="10pt"
+        android:id="@+id/pass"
+        android:text="  Password:"
+        android:layout_alignLeft="@id/logintext"
+        android:layout_below="@id/logintext"
+        android:textColor="@color/black"
+        android:layout_marginTop="5pt"/>
+
+    <TextView
+        android:layout_width="60pt"
+        android:layout_height="10pt"
+        android:textSize="13dp"
+        android:id="@+id/forgot"
+        android:text="Forget your password?"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logintext"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="90pt"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <!-- Password -->
+    <EditText
+        android:id="@+id/password"
+        android:width="130pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pass"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="13dp"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/input_effect"
+        android:drawableLeft="@drawable/ic_lock"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="187dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="35pt"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/whitelogo" />
+
+    <!-- Login text -->
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105pt"
+        android:fontFamily="sans-serif-light"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/submitbutton"
+        android:layout_width="45pt"
+        android:layout_height="15pt"
+        android:layout_below="@id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10pt"
+        android:background="@drawable/subbutton"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="SUBMIT"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>

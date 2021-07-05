@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientbg"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/biglogo"
+        android:layout_width="328dp"
+        android:layout_height="239dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52pt"
+        app:srcCompat="@drawable/logowifcircle"/>
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/biglogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80pt"
+        android:fontFamily="monospace"
+        android:text="HELLO! Welcome to SHOP4ALL"
+        android:textColor="@color/white"
+        android:textSize="8pt"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/desc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/desc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5pt"
+        android:fontFamily="serif-monospace"
+        android:text="''  It's an ADD TO CART kinda day! ''"
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="italic" />
+
+
+</RelativeLayout>
