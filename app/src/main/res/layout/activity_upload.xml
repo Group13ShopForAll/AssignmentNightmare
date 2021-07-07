@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UploadActivity">
+    tools:context=".UploadActivity"
+    android:background="@drawable/top_bg">
 
+    <!--Jiun Lin-->
+    <!--Add Image-->
     <ImageView
         android:id="@+id/ivAddImage"
         android:layout_width="wrap_content"
@@ -17,11 +20,14 @@
         android:src="@drawable/ic_baseline_add_photo_alternate_24"
         app:layout_constraintVertical_bias="0.2" />
 
+
+    <!--Add Item Name-->
     <TextView
         android:id="@+id/tvItemName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Item Name:"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20dp"
         android:padding="10dp"
@@ -36,6 +42,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Item Name"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvItemName"
@@ -44,12 +51,15 @@
         app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_percent=".8"
         android:background="@drawable/textfield_shape"/>
+
+    <!--Add Item Description-->
     <TextView
         android:id="@+id/tvItemDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Item Description:"
         android:textSize="20dp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +73,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Description"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvItemDesc"
@@ -71,12 +82,15 @@
         app:layout_constraintWidth_percent=".8"
         android:padding="10dp"
         android:background="@drawable/textfield_shape"/>
+
+    <!-- Add Item Price-->
     <TextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price(RM):"
         android:textSize="20dp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias=".15"
         app:layout_constraintTop_toBottomOf="@+id/itemDesc"
@@ -92,6 +106,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:hint="00.00"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@id/itemDesc"
         app:layout_constraintStart_toEndOf="@+id/tvPrice"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,6 +115,8 @@
         app:layout_constraintWidth_percent=".2"
         android:padding="10dp"
         app:layout_constraintHorizontal_bias="0" />
+
+    <!--Add Item Quantity-->
     <TextView
         android:id="@+id/tvQuantity"
         android:layout_width="wrap_content"
@@ -107,6 +124,7 @@
         android:text="Quantity:"
         android:textStyle="bold"
         android:textSize="20dp"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/tvPrice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,6 +139,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="0"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@id/tvPrice"
         app:layout_constraintStart_toEndOf="@+id/tvQuantity"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,6 +149,8 @@
         android:padding="10dp"
         app:layout_constraintHorizontal_bias="0" />
 
+
+    <!--Confirm Button-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/uploadConfirm"
         android:layout_width="wrap_content"
@@ -143,6 +164,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.888" />
 
+    <!--Cancel Button-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/uploadCancel"
         android:layout_width="wrap_content"
@@ -156,6 +178,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.888" />
 
+    <!--Back button-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -163,8 +186,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.1"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:backgroundTint="@color/gray"
         />
