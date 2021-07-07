@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AssignmentNightmare">
+        <activity android:name=".UploadActivity"></activity>
         <activity android:name=".Profile">
             <intent-filter>
                 <action android:name=".Profile" />
@@ -18,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Homepagee" >
+        <activity android:name=".Homepagee">
             <intent-filter>
                 <action android:name=".Homepagee" />
 
