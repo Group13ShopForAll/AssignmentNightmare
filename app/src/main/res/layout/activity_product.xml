@@ -7,6 +7,7 @@
     tools:context=".ProductActivity"
     android:background="@drawable/top_bg">
 
+    <!--Item Image-->
     <ImageView
         android:id="@+id/ivItemSoldImage"
         android:layout_width="match_parent"
