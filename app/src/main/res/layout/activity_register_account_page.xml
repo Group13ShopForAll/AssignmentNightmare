@@ -4,13 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginPage"
     android:background="@drawable/loginbg2"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true">
-
-
-
+    tools:context=".RegisterAccountPage">
 
     <!-- box for login -->
     <TextView
@@ -18,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/login"
+        android:layout_below="@id/registerBanner"
         android:width="150pt"
         android:height="150pt"
         android:background="@drawable/square" />
@@ -29,13 +24,13 @@
         android:layout_height="10pt"
         android:id="@+id/mail"
         android:text="  Email:"
-        android:layout_alignLeft="@id/edtLoginAccount"
-        android:layout_below="@id/login"
+        android:layout_alignLeft="@id/edtRegAccount"
+        android:layout_below="@id/registerBanner"
         android:textColor="@color/black"
         android:layout_marginTop="10pt"/>
 
     <EditText
-        android:id="@+id/edtLoginAccount"
+        android:id="@+id/edtRegAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -50,34 +45,20 @@
         android:inputType="textEmailAddress"
         android:drawableLeft="@drawable/ic_email" />
 
-
+    <!--Register Account Password-->
     <TextView
         android:layout_width="50pt"
         android:layout_height="10pt"
         android:id="@+id/pass"
         android:text="  Password:"
-        android:layout_alignLeft="@id/edtLoginAccount"
-        android:layout_below="@id/edtLoginAccount"
+        android:layout_alignLeft="@id/edtRegAccount"
+        android:layout_below="@id/edtRegAccount"
         android:textColor="@color/black"
         android:layout_marginTop="5pt"/>
 
-    <TextView
-        android:layout_width="60pt"
-        android:layout_height="10pt"
-        android:textSize="13dp"
-        android:id="@+id/forgot"
-        android:text="Forget your password?"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnRegisterAccount"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
-
-    <!-- Password -->
+    <!--Edit Text for Password -->
     <EditText
-        android:id="@+id/edtLoginPassword"
+        android:id="@+id/edtPassword"
         android:width="130pt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,16 +76,36 @@
         android:focusable="true"
         android:focusableInTouchMode="true"/>
 
-    <!--Error banner for invalid login-->
+    <!-- text view for confirm password banner-->
     <TextView
-        android:id="@+id/tvErrorLoginBanner"
+        android:layout_width="100pt"
+        android:layout_height="10pt"
+        android:id="@+id/tvConfirmPassword"
+        android:text="  Confirm Password:"
+        android:layout_alignLeft="@id/edtRegAccount"
+        android:layout_below="@id/edtPassword"
+        android:textColor="@color/black"
+        android:layout_marginTop="5pt"/>
+
+    <!-- Confirm Password -->
+    <EditText
+        android:id="@+id/edtConfirmPassword"
+        android:width="130pt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtLoginPassword"
-        android:layout_alignLeft="@+id/edtLoginPassword"
-        android:textColor="#FF0707"
-        android:visibility="invisible"
-        android:text="Account not existed or password error. Try again."/>
+        android:layout_below="@+id/tvConfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="13dp"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/input_effect"
+        android:drawableLeft="@drawable/ic_lock"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
 
     <!-- Logo -->
     <ImageView
@@ -117,35 +118,22 @@
 
     <!-- Login text -->
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/registerBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="105pt"
         android:fontFamily="sans-serif-light"
-        android:text="Login"
+        android:text="Register"
         android:textColor="@color/white"
         android:textSize="10pt"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/btnLoginAccount"
+        android:id="@+id/btnRegAcc"
         android:layout_width="45pt"
         android:layout_height="15pt"
-        android:layout_below="@id/edtLoginPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20pt"
-        android:background="@drawable/subbutton"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="LOGIn"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/btnRegisterAccount"
-        android:layout_width="45pt"
-        android:layout_height="15pt"
-        android:layout_below="@id/btnLoginAccount"
+        android:layout_below="@id/edtConfirmPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10pt"
         android:background="@drawable/subbutton"
@@ -155,11 +143,10 @@
         android:textStyle="bold" />
 
     <ProgressBar
-        android:id="@+id/pbLoginAcc"
+        android:id="@+id/pbRegAcc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
         android:layout_marginLeft="175dp"
+        android:layout_marginTop="400dp"
         android:visibility="invisible"/>
-
 </RelativeLayout>

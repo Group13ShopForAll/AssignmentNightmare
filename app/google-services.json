@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "775122347661",
+    "project_id": "shop4all-e7332",
+    "storage_bucket": "shop4all-e7332.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775122347661:android:03762f98cfb87735cc24c4",
+        "android_client_info": {
+          "package_name": "my.edu.utar.assignmentnightmare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775122347661-hran1josslnnv5s2k9pful22dqmh35q5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoZeJ6dvcusRhjBshssbP85gpEfI4goIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775122347661-hran1josslnnv5s2k9pful22dqmh35q5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
