@@ -6,7 +6,8 @@
     android:layout_marginTop="10dp"
     android:layout_marginEnd="10dp"
     android:layout_marginRight="10dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    android:id="@+id/cvProductSold">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,11 +16,11 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/ivItemImage"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:id="@+id/ivProductSoldImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:padding="43dp"
             android:src="@drawable/item1" />
 
         <LinearLayout
@@ -28,13 +29,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvItemName"
+                android:id="@+id/tvProductSoldName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="Iphone 12 mini"
+                android:fontFamily="sans-serif-black"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:ellipsize="end"
                 android:maxLines="1"/>
@@ -62,7 +64,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/tvItemPrice"
+                android:id="@+id/tvProductSoldPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10px"
@@ -80,16 +82,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15sp"
                 android:text="Stock Remaining:"/>
 
             <TextView
-                android:id="@+id/tvItemAmount"
+                android:id="@+id/tvProductSoldStock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="6dp"
+                android:padding="10dp"
                 android:text="12"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
     </LinearLayout>

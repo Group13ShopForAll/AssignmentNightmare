@@ -7,13 +7,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +25,11 @@ public class Homepagee extends AppCompatActivity {
 
     ImageSlider imageSlider;
 
-    private RecyclerView rcvItem;
-    private ItemAdapter mItemAdapter;
+    //private RecyclerView rcvItem;
+    //private ItemAdapter mItemAdapter;
+
+    private RecyclerView rvSoldProduct;
+    private ProductAdapter productAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +37,19 @@ public class Homepagee extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_homepagee);
 
-        rcvItem = findViewById(R.id.rvSoldItem);
-        mItemAdapter = new ItemAdapter(this);
+        // Done by Jiun Lin
+        // get recycler view at home page
+        rvSoldProduct = (RecyclerView) findViewById(R.id.rvSoldProduct);
+        rvSoldProduct.setLayoutManager(new LinearLayoutManager(this));
+        // set up recycler view options at home page for sold product
+        FirebaseRecyclerOptions<Product> options =
+                new FirebaseRecyclerOptions.Builder<Product>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("homepage").child("products"),Product.class).build();
+        // apply the options at the product adapter and allocate the adapter to the recycler view at homepage
+        productAdapter = new ProductAdapter(options);
+        rvSoldProduct.setAdapter(productAdapter);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        rcvItem.setLayoutManager(gridLayoutManager);
-
-        mItemAdapter.setData(getListItem());
-        rcvItem.setAdapter(mItemAdapter);
-
-
+        // Done by Felix
         imageSlider = findViewById(R.id.carousel);
 
         ArrayList<SlideModel> images = new ArrayList<>();
@@ -94,18 +103,15 @@ public class Homepagee extends AppCompatActivity {
 
     }
 
-    private List<Item> getListItem(){
-        List<Item> list = new ArrayList<>();
-        list.add(new Item(R.drawable.item1, "Iphone 12 mini", 3500, "2"));
-        list.add(new Item(R.drawable.item2, "PowerBank",30, "32"));
-        list.add(new Item(R.drawable.item3, "Ultra non-stick fry pannananananannanananananannaa",55, "4"));
-        list.add(new Item(R.drawable.item4, "Printer",210, "12"));
-        list.add(new Item(R.drawable.item5, "Red Dress",78.50, "52"));
-        list.add(new Item(R.drawable.item6, "Spalding Basketball",120, "22"));
-        list.add(new Item(R.drawable.item7, "Boltless Rack",150, "22"));
-        list.add(new Item(R.drawable.item8, "Marker Pens",10.55, "22"));
-
-        return list;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        productAdapter.startListening();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        productAdapter.stopListening();
+    }
 }

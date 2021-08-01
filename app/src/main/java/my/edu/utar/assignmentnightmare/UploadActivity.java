@@ -70,7 +70,7 @@ public class UploadActivity extends AppCompatActivity {
 
         productImgRef = FirebaseStorage.getInstance().getReference().child(currentUserId).child("product images");
         userProductRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("products");
-
+        homepageProductRef = FirebaseDatabase.getInstance().getReference().child("homepage").child("products");
         // while clicking on the add product image icon, trigger function to choose image from device storage
         ivAddProductImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,10 +165,25 @@ public class UploadActivity extends AppCompatActivity {
         productMap.put("productStock",productStock);
         productMap.put("productImgUri",downloadUri);
 
+        //store product info in particular user reference
         userProductRef.child(productName+currentUserId+saveCurrentTime).updateChildren(productMap).addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
                 Toast.makeText(UploadActivity.this, "New Product has been uploaded", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(UploadActivity.this, "Error occurred "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // store product info in homepage ref for showing purpose
+        homepageProductRef.child(productName+currentUserId+saveCurrentTime).updateChildren(productMap).addOnSuccessListener(new OnSuccessListener() {
+            @Override
+            public void onSuccess(Object o) {
+                Toast.makeText(UploadActivity.this, "New Product has been uploaded to homepage", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
