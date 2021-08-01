@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegisterAccountPage extends AppCompatActivity {
 
     private EditText edtRegAcc, edtRegPassword, edtConfirmPassword;
-    private TextView btnRegisterAcc;
+    private TextView btnRegisterAcc, tvErrorRegisterBanner;
     private ProgressBar pbRegAcc;
 
     private String emailAcc, password, confirmPassword;
@@ -38,6 +38,8 @@ public class RegisterAccountPage extends AppCompatActivity {
 
         pbRegAcc = (ProgressBar) findViewById(R.id.pbRegAcc);
         btnRegisterAcc = (TextView) findViewById(R.id.btnRegAcc);
+
+        tvErrorRegisterBanner = (TextView) findViewById(R.id.tvErrorRegisterBanner);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -81,6 +83,8 @@ public class RegisterAccountPage extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(emailAcc,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
+                pbRegAcc.setVisibility(View.INVISIBLE);
+                tvErrorRegisterBanner.setVisibility(View.INVISIBLE);
                 Toast.makeText(RegisterAccountPage.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
                 sendToLoginPage();
             }
@@ -88,6 +92,9 @@ public class RegisterAccountPage extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(RegisterAccountPage.this, "Failed created account, "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                tvErrorRegisterBanner.setVisibility(View.VISIBLE);
+                pbRegAcc.setVisibility(View.INVISIBLE);
+
             }
         });
     }

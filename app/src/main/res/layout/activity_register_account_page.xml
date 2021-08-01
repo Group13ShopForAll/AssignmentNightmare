@@ -142,6 +142,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/tvErrorRegisterBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account existed already. Please try others."
+        android:textColor="#FF0707"
+        android:layout_below="@+id/edtConfirmPassword"
+        android:layout_alignLeft="@+id/edtConfirmPassword"
+        android:visibility="invisible"
+        />
+
     <ProgressBar
         android:id="@+id/pbRegAcc"
         android:layout_width="wrap_content"
