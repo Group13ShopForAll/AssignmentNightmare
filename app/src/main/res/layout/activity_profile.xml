@@ -205,10 +205,10 @@
             android:layout_marginRight="55dp">
 
             <ImageView
-                android:id="@+id/ewallet"
-                android:layout_width="25pt"
+                android:id="@+id/buttonUploadProduct"
+                android:layout_width="wrap_content"
                 android:layout_height="25pt"
-                app:srcCompat="@drawable/s4alogo" />
+                app:srcCompat="@drawable/upload_product_icon" />
 
             <TextView
                 android:id="@+id/ewallettext"
@@ -218,9 +218,9 @@
                 android:layout_marginTop="3pt"
                 android:layout_weight="1"
                 android:textColor="@color/black"
-                android:layout_below="@id/ewallet"
+                android:layout_below="@id/buttonUploadProduct"
                 android:textSize="5pt"
-                android:text="To Pay" />
+                android:text="Upload My Product" />
         </RelativeLayout>
 
 

@@ -2,13 +2,17 @@ package my.edu.utar.assignmentnightmare;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Profile extends AppCompatActivity {
+
+    private ImageView btnUploadProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,19 @@ public class Profile extends AppCompatActivity {
             return false;
         });
 
+        //Done by Jiun Lin
+        btnUploadProduct = (ImageView) findViewById(R.id.buttonUploadProduct);
+        btnUploadProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToUploadActivity();
+            }
+        });
 
+    }
 
+    private void sendToUploadActivity() {
+        startActivity(new Intent(Profile.this,UploadActivity.class));
     }
 
 }

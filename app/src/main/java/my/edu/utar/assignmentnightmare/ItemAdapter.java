@@ -67,10 +67,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             //add items attributes here
-            imgItem = itemView.findViewById(R.id.itemimg);
-            itemName = itemView.findViewById(R.id.itemname);
-            itemprice = itemView.findViewById(R.id.price);
-            soldnum = itemView.findViewById(R.id.sold);
+            imgItem = itemView.findViewById(R.id.ivItemImage);
+            itemName = itemView.findViewById(R.id.tvItemName);
+            itemprice = itemView.findViewById(R.id.tvItemPrice);
+            soldnum = itemView.findViewById(R.id.tvItemAmount);
             
         }
     }

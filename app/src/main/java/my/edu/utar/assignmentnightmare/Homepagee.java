@@ -31,7 +31,7 @@ public class Homepagee extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_homepagee);
 
-        rcvItem = findViewById(R.id.itemsrcv);
+        rcvItem = findViewById(R.id.rvSoldItem);
         mItemAdapter = new ItemAdapter(this);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
