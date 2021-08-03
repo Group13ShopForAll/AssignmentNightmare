@@ -87,6 +87,7 @@ public class RegisterAccountPage extends AppCompatActivity {
                 tvErrorRegisterBanner.setVisibility(View.INVISIBLE);
                 Toast.makeText(RegisterAccountPage.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
                 sendToLoginPage();
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -94,7 +95,7 @@ public class RegisterAccountPage extends AppCompatActivity {
                 Toast.makeText(RegisterAccountPage.this, "Failed created account, "+e.getMessage(), Toast.LENGTH_SHORT).show();
                 tvErrorRegisterBanner.setVisibility(View.VISIBLE);
                 pbRegAcc.setVisibility(View.INVISIBLE);
-
+                finish();
             }
         });
     }

@@ -248,22 +248,21 @@
             android:layout_marginTop="35dp">
 
             <ImageView
-                android:id="@+id/anotherfunction"
+                android:id="@+id/buttonUpdateProfile"
                 android:layout_width="25pt"
                 android:layout_height="25pt"
-                app:srcCompat="@drawable/star" />
+                android:src="@drawable/update_profile_icon"/>
 
             <TextView
-                android:id="@+id/anotherfunctiontext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="3pt"
                 android:layout_weight="1"
                 android:textColor="@color/black"
-                android:layout_below="@id/anotherfunction"
+                android:layout_below="@id/buttonUpdateProfile"
                 android:textSize="5pt"
-                android:text="To Rate" />
+                android:text="Update Profile" />
         </RelativeLayout>
 
     </GridLayout>

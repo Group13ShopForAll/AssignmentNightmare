@@ -84,12 +84,14 @@ public class LoginPage extends AppCompatActivity {
                 pbLoginAcc.setVisibility(View.INVISIBLE);
                 tvErrorLoginBanner.setVisibility(View.INVISIBLE);
                 sendToHomePage();
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pbLoginAcc.setVisibility(View.INVISIBLE);
                 tvErrorLoginBanner.setVisibility(View.VISIBLE);
+                finish();
             }
         });
     }

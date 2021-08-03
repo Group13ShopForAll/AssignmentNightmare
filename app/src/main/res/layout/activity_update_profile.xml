@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateProfileActivity"
+    android:background="@drawable/bigboxx">
+
+    <!--Done by Jiun Lin-->
+
+    <ImageButton
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".1"
+        android:id="@+id/btnAddProfileImage"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:background="@drawable/add_profile_img_icon"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Username: "
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".3"
+        app:layout_constraintHorizontal_bias=".1"/>
+
+    <EditText
+        android:id="@+id/edtUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:hint="Type your username"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent=".5"
+        app:layout_constraintVertical_bias=".3"/>
+
+    <TextView
+        android:id="@+id/tvEmailBanner"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Email: "
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintVertical_bias=".01"
+        app:layout_constraintHorizontal_bias=".1"/>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tvEmailBanner"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintHorizontal_bias=".3"
+        android:padding="10dp"
+        android:text="example@email.com"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvContactNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Num: "
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-black"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailBanner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".01"
+        app:layout_constraintHorizontal_bias=".1"/>
+
+    <EditText
+        android:id="@+id/edtContactNum"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="012-3456789"
+        android:gravity="center"
+        android:inputType="phone"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailBanner"
+        app:layout_constraintStart_toEndOf="@+id/tvContactNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".01"
+        app:layout_constraintHorizontal_bias=".1"/>
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address: "
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-black"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvContactNum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".01"
+        app:layout_constraintHorizontal_bias=".1"/>
+
+    <EditText
+        android:id="@+id/edtAddressLine1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Address Line 1"
+        android:inputType="textPostalAddress"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvContactNum"
+        app:layout_constraintStart_toEndOf="@+id/tvAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".01"
+        app:layout_constraintHorizontal_bias=".1"/>
+    <EditText
+        android:id="@+id/edtAddressLine2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Address Line 2"
+        android:inputType="textPostalAddress"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+        app:layout_constraintStart_toEndOf="@+id/tvAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".01"
+        app:layout_constraintHorizontal_bias=".1"/>
+
+    <TextView
+        android:id="@+id/tvResetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Password"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/subbutton"
+        app:layout_constraintTop_toBottomOf="@+id/edtAddressLine2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".2"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/botnav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/navicorner"
+        app:menu="@menu/navigationbar"
+        app:itemRippleColor="#BDB76B"
+        app:itemIconTint="@color/icon_color"
+        app:itemTextColor="#BDB76B">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
