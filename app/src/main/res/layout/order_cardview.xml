@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Done by Low Wei Han-->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    android:elevation="6dp"
+    app:cardUseCompatPadding="true"
+    android:background="@drawable/top_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@drawable/top_bg">
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/productName"
+            />
+
+        <TextView
+            android:id="@+id/buyerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buyer"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/productPrice"
+            />
+
+        <TextView
+            android:id="@+id/buyerPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buyer Contact"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/buyerName"
+            />
+
+        <TextView
+            android:id="@+id/buyerAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buyerPhoneNumber"
+            android:layout_marginLeft="10dp"
+            android:text="Buyer Address"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sellerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buyerAddress"
+            android:layout_marginLeft="10dp"
+            android:text="Seller"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/purchaseDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sellerName"
+            android:layout_marginLeft="10dp"
+            android:text="Purchase Date"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
