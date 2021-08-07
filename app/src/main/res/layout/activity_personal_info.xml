@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonalInfoActivity"
+    android:background="@drawable/top_bg">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="187dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="15pt"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/whitelogo" />
+
+    <!-- box for login -->
+    <TextView
+        android:id="@+id/box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/personalInfoBanner"
+        android:width="150pt"
+        android:height="210pt"
+        android:background="@drawable/square" />
+
+    <!--Profile Image-->
+    <ImageButton
+        android:id="@+id/btnAddProfileImage"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="10pt"
+        android:background="@drawable/add_profile_img_icon"
+        android:layout_below="@+id/personalInfoBanner"/>
+
+    <!-- Username -->
+    <TextView
+        android:layout_width="50pt"
+        android:layout_height="10pt"
+        android:id="@+id/tvUsername"
+        android:text="  Username:"
+        android:layout_alignLeft="@id/edtUsername"
+        android:layout_below="@id/btnAddProfileImage"
+        android:textColor="@color/black"
+        android:layout_marginTop="10pt"/>
+
+    <EditText
+        android:id="@+id/edtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvUsername"
+        android:background="@drawable/input_effect"
+        android:width="130pt"
+        android:ems="10"
+        android:drawablePadding="13dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/ic_user" />
+
+    <!-- Contact Number-->
+    <TextView
+        android:layout_width="50pt"
+        android:layout_height="10pt"
+        android:id="@+id/tvContactNum"
+        android:text="  Contact Number:"
+        android:layout_alignLeft="@id/edtUsername"
+        android:layout_below="@id/edtUsername"
+        android:textColor="@color/black"
+        android:layout_marginTop="5pt"/>
+
+    <EditText
+        android:id="@+id/edtContactNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvContactNum"
+        android:background="@drawable/input_effect"
+        android:width="130pt"
+        android:ems="10"
+        android:drawablePadding="13dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:inputType="phone"
+        android:drawableLeft="@drawable/ic_phone" />
+
+    <!-- Address-->
+    <TextView
+        android:layout_width="50pt"
+        android:layout_height="10pt"
+        android:id="@+id/tvAddress"
+        android:text="  Address:"
+        android:layout_alignLeft="@id/edtUsername"
+        android:layout_below="@id/edtContactNum"
+        android:textColor="@color/black"
+        android:layout_marginTop="5pt"/>
+
+    <EditText
+        android:id="@+id/edtAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvAddress"
+        android:background="@drawable/input_effect"
+        android:width="130pt"
+        android:ems="10"
+        android:drawablePadding="13dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:drawableLeft="@drawable/ic_address" />
+
+    <!-- Personal Info text -->
+    <TextView
+        android:id="@+id/personalInfoBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60pt"
+        android:fontFamily="sans-serif-light"
+        android:text="Personal info"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        android:textStyle="bold" />
+
+    <!-- button add-->
+    <TextView
+        android:id="@+id/btnAddPersonalInfo"
+        android:layout_width="45pt"
+        android:layout_height="15pt"
+        android:layout_below="@id/edtAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10pt"
+        android:background="@drawable/subbutton"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Add info"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textStyle="bold" />
+
+
+    <ProgressBar
+        android:id="@+id/pbAddPersonalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="400dp"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

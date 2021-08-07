@@ -153,29 +153,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
-                <LinearLayout
+                <EditText
+                    android:id="@+id/edtAddressLine1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <EditText
-                        android:id="@+id/edtAddressLine1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address Line 1"
-                        android:textColorHint="@color/white"
-                        android:layout_margin="10dp"
-                        android:inputType="textPostalAddress"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/edtAddressLine2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address Line 2"
-                        android:textColorHint="@color/white"
-                        android:inputType="textPostalAddress"
-                        android:layout_margin="10dp"
-                        android:padding="10dp"/>
-                </LinearLayout>
+                    android:hint="Address"
+                    android:textColorHint="@color/white"
+                    android:layout_margin="10dp"
+                    android:inputType="textPostalAddress"
+                    android:padding="10dp" />
 
             </RelativeLayout>
         </LinearLayout>

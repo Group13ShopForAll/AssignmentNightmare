@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AssignmentNightmare">
+        <activity android:name=".PersonalInfoActivity"></activity>
         <activity
             android:name=".DisplayOrder"
             android:exported="true" />

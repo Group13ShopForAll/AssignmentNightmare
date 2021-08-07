@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Profile extends AppCompatActivity {
 
-    private ImageView btnUploadProduct;
+    private ImageView btnUploadProduct, btnUpdateProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,18 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        btnUpdateProfile = (ImageView) findViewById(R.id.buttonUpdateProfile);
+        btnUpdateProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToUpdateProfileActivity();
+            }
+        });
+
+    }
+
+    private void sendToUpdateProfileActivity() {
+        startActivity(new Intent(Profile.this, UpdateProfileActivity.class));
     }
 
     private void sendToUploadActivity() {

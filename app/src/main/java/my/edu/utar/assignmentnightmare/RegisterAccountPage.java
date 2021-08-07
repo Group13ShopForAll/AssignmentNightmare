@@ -86,7 +86,7 @@ public class RegisterAccountPage extends AppCompatActivity {
                 pbRegAcc.setVisibility(View.INVISIBLE);
                 tvErrorRegisterBanner.setVisibility(View.INVISIBLE);
                 Toast.makeText(RegisterAccountPage.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
-                sendToLoginPage();
+                sendToPersonalInfoActivity();
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -98,6 +98,10 @@ public class RegisterAccountPage extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void sendToPersonalInfoActivity() {
+        startActivity(new Intent(RegisterAccountPage.this, PersonalInfoActivity.class));
     }
 
     private void sendToLoginPage() {
