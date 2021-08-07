@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/personalInfoBanner"
         android:width="150pt"
-        android:height="210pt"
+        android:height="230pt"
         android:background="@drawable/square" />
 
     <!--Profile Image-->
@@ -46,7 +46,7 @@
         android:layout_alignLeft="@id/edtUsername"
         android:layout_below="@id/btnAddProfileImage"
         android:textColor="@color/black"
-        android:layout_marginTop="10pt"/>
+        android:layout_marginTop="15pt"/>
 
     <EditText
         android:id="@+id/edtUsername"
@@ -143,6 +143,17 @@
         android:text="Add info"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvAlertProfileImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5pt"
+        android:text="Please upload your profile image"
+        android:layout_below="@+id/btnAddProfileImage"
+        android:layout_alignLeft="@+id/tvUsername"
+        android:visibility="invisible"
+        android:textColor="#ED0E0E"/>
 
 
     <ProgressBar

@@ -36,7 +36,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
     private ImageButton btnAddProfileImage;
     private EditText edtUsername, edtContactNum, edtAddress;
     private Uri profileImgUri;
-    private TextView btnAddPersonalInfo;
+    private TextView btnAddPersonalInfo, tvAlertProfileImg;
     private ProgressBar pbAddPersonalInfo;
 
     private String username, contactNum, address;
@@ -54,6 +54,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
         edtAddress = (EditText) findViewById(R.id.edtAddress);
         btnAddPersonalInfo = (TextView) findViewById(R.id.btnAddPersonalInfo);
         pbAddPersonalInfo = (ProgressBar) findViewById(R.id.pbAddPersonalInfo);
+        tvAlertProfileImg = (TextView) findViewById(R.id.tvAlertProfileImg);
 
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getUid();
@@ -95,6 +96,13 @@ public class PersonalInfoActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(address)){
             edtAddress.setError("Please type in your address");
             return;
+        }
+        if (btnAddProfileImage.getDrawable() == null){
+            tvAlertProfileImg.setVisibility(View.VISIBLE);
+            return;
+        }
+        if (btnAddProfileImage.getDrawable() != null){
+            tvAlertProfileImg.setVisibility(View.INVISIBLE);
         }
         insertProfileImgToFirebaseStorage();
     }

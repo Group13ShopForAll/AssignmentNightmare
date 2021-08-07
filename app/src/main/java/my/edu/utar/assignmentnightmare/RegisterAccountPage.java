@@ -95,7 +95,6 @@ public class RegisterAccountPage extends AppCompatActivity {
                 Toast.makeText(RegisterAccountPage.this, "Failed created account, "+e.getMessage(), Toast.LENGTH_SHORT).show();
                 tvErrorRegisterBanner.setVisibility(View.VISIBLE);
                 pbRegAcc.setVisibility(View.INVISIBLE);
-                finish();
             }
         });
     }
