@@ -1,18 +1,37 @@
 package my.edu.utar.assignmentnightmare;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Profile extends AppCompatActivity {
 
     private ImageView btnUploadProduct, btnUpdateProfile;
+    private CircleImageView civProfileImg;
+    private TextView tvProfileName;
+    private FirebaseAuth mAuth;
+    private DatabaseReference userProfileRef;
+    private String currentUserId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +89,30 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendToUpdateProfileActivity();
+            }
+        });
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUserId = mAuth.getUid();
+        userProfileRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("user profile");
+
+        civProfileImg = (CircleImageView) findViewById(R.id.profilepic);
+        tvProfileName = (TextView) findViewById(R.id.profilename);
+
+        userProfileRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //retrieve data from firebase
+                String username = snapshot.child("username").getValue().toString();
+                Uri profileImg = Uri.parse(snapshot.child("profile image").getValue().toString());
+                //display profile image and username on respective field
+                Picasso.get().load(profileImg).into(civProfileImg);
+                tvProfileName.setText(username);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Profile.this, "Cancelled", Toast.LENGTH_SHORT).show();
             }
         });
 
