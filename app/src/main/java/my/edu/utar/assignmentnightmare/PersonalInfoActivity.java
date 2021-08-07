@@ -146,7 +146,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
         personalInfoMap.put("address",address);
         personalInfoMap.put("profile image",downloadUri);
 
-        userProfileRef.child(currentUserId+" profile image").updateChildren(personalInfoMap).addOnSuccessListener(new OnSuccessListener() {
+        userProfileRef.updateChildren(personalInfoMap).addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
                 Toast.makeText(PersonalInfoActivity.this, "Personal Info has been uploaded", Toast.LENGTH_SHORT).show();
