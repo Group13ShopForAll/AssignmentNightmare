@@ -12,15 +12,21 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
+
+import java.util.List;
 
 public class RegisterAccountPage extends AppCompatActivity {
 
     private EditText edtRegAcc, edtRegPassword, edtConfirmPassword;
-    private TextView btnRegisterAcc, tvErrorRegisterBanner;
+    private TextView btnRegNext, tvErrorRegisterBanner;
     private ProgressBar pbRegAcc;
 
     private String emailAcc, password, confirmPassword;
@@ -37,14 +43,14 @@ public class RegisterAccountPage extends AppCompatActivity {
         edtConfirmPassword = (EditText) findViewById(R.id.edtConfirmPassword);
 
         pbRegAcc = (ProgressBar) findViewById(R.id.pbRegAcc);
-        btnRegisterAcc = (TextView) findViewById(R.id.btnRegAcc);
+        btnRegNext = (TextView) findViewById(R.id.btnRegNext);
 
         tvErrorRegisterBanner = (TextView) findViewById(R.id.tvErrorRegisterBanner);
 
         mAuth = FirebaseAuth.getInstance();
 
         // when user click on the register account button, functions trigger
-        btnRegisterAcc.setOnClickListener(new View.OnClickListener() {
+        btnRegNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //first check if the user had filled in all the required fields.
@@ -73,37 +79,38 @@ public class RegisterAccountPage extends AppCompatActivity {
         }
         if (!password.equals(confirmPassword)){
             edtConfirmPassword.setError("Confirm password needs to be same as previous password");
+            return;
         }
         // if the user had typed in all the required info, proceed to account registration action
         pbRegAcc.setVisibility(View.VISIBLE);
-        registerAccount();
+        checkAccountExistence();
     }
 
-    private void registerAccount() {
-        mAuth.createUserWithEmailAndPassword(emailAcc,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+    private void checkAccountExistence() {
+        mAuth.fetchSignInMethodsForEmail(emailAcc).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
             @Override
-            public void onSuccess(AuthResult authResult) {
-                pbRegAcc.setVisibility(View.INVISIBLE);
-                tvErrorRegisterBanner.setVisibility(View.INVISIBLE);
-                Toast.makeText(RegisterAccountPage.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
-                sendToPersonalInfoActivity();
-                finish();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegisterAccountPage.this, "Failed created account, "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                tvErrorRegisterBanner.setVisibility(View.VISIBLE);
-                pbRegAcc.setVisibility(View.INVISIBLE);
+            public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                if (task.isSuccessful()){
+                    boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
+                    if (isNewUser){
+                        pbRegAcc.setVisibility(View.INVISIBLE);
+                        tvErrorRegisterBanner.setVisibility(View.INVISIBLE);
+                        sendToPersonalInfoActivity(emailAcc,password);
+                    }else{
+                        tvErrorRegisterBanner.setVisibility(View.VISIBLE);
+                        pbRegAcc.setVisibility(View.INVISIBLE);
+                        return;
+                    }
+                }
             }
         });
     }
 
-    private void sendToPersonalInfoActivity() {
-        startActivity(new Intent(RegisterAccountPage.this, PersonalInfoActivity.class));
+    private void sendToPersonalInfoActivity(String emailAcc, String password) {
+        Intent intent = new Intent(RegisterAccountPage.this, PersonalInfoActivity.class);
+        intent.putExtra("emailAcc",emailAcc);
+        intent.putExtra("password",password);
+        startActivity(intent);
     }
 
-    private void sendToLoginPage() {
-        startActivity(new Intent(RegisterAccountPage.this, LoginPage.class));
-    }
 }

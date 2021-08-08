@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,6 +44,9 @@ public class PersonalInfoActivity extends AppCompatActivity {
     private static int Gallery_Pick = 1;
     private String saveCurrentDate, saveCurrentTime, profileImgName, currentUserId, downloadUri;
 
+    private Intent intentFromRegisterPage;
+    private String emailAcc, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +61,10 @@ public class PersonalInfoActivity extends AppCompatActivity {
         tvAlertProfileImg = (TextView) findViewById(R.id.tvAlertProfileImg);
 
         mAuth = FirebaseAuth.getInstance();
-        currentUserId = mAuth.getUid();
 
-        userProfileRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("user profile");
-        userProfileImgRef = FirebaseStorage.getInstance().getReference().child(currentUserId).child("profile images");
-
-
+        intentFromRegisterPage = getIntent();
+        emailAcc = intentFromRegisterPage.getStringExtra("emailAcc");
+        password = intentFromRegisterPage.getStringExtra("password");
 
         btnAddProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +106,28 @@ public class PersonalInfoActivity extends AppCompatActivity {
         if (btnAddProfileImage.getDrawable() != null){
             tvAlertProfileImg.setVisibility(View.INVISIBLE);
         }
-        insertProfileImgToFirebaseStorage();
+        registerAccount();
+    }
+
+    private void registerAccount() {
+        mAuth.createUserWithEmailAndPassword(emailAcc,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                // once account registration success, further define the path for storing profile image and info
+                currentUserId = mAuth.getUid();
+                userProfileRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("user profile");
+                userProfileImgRef = FirebaseStorage.getInstance().getReference().child(currentUserId).child("profile images");
+
+                Toast.makeText(PersonalInfoActivity.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
+                insertProfileImgToFirebaseStorage();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(PersonalInfoActivity.this, "Failed created account, "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                pbAddPersonalInfo.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 
     private void insertProfileImgToFirebaseStorage() {
@@ -157,6 +180,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
         userProfileRef.updateChildren(personalInfoMap).addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
+                pbAddPersonalInfo.setVisibility(View.INVISIBLE);
                 Toast.makeText(PersonalInfoActivity.this, "Personal Info has been uploaded", Toast.LENGTH_SHORT).show();
                 sendToLoginPage();
             }

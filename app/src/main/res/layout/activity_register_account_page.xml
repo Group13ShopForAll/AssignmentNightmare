@@ -130,7 +130,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/btnRegAcc"
+        android:id="@+id/btnRegNext"
         android:layout_width="45pt"
         android:layout_height="15pt"
         android:layout_below="@id/edtConfirmPassword"
@@ -138,7 +138,7 @@
         android:layout_marginTop="10pt"
         android:background="@drawable/subbutton"
         android:gravity="center_vertical|center_horizontal"
-        android:text="Register"
+        android:text="Next"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textStyle="bold" />
 
