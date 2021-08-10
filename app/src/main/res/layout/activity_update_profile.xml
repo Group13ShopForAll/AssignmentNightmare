@@ -8,14 +8,22 @@
     android:background="@drawable/top_bg">
 
     <!--Done by Jiun Lin-->
-
+    <ProgressBar
+        android:id="@+id/pbUpdateProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnAddProfileImage"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civUpdateProfileImg"
             android:layout_gravity="center"
             android:layout_width="130dp"
             android:layout_height="130dp"
@@ -31,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <TextView
-                    android:id="@+id/tvUsername"
+                    android:id="@+id/tvUpdateUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -46,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
                 <EditText
-                    android:id="@+id/edtUsername"
+                    android:id="@+id/edtUpdateUsername"
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <TextView
-                    android:id="@+id/tvEmailBanner"
+                    android:id="@+id/tvUpdateEmailBanner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -80,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
                 <TextView
-                    android:id="@+id/tvEmail"
+                    android:id="@+id/tvUpdateEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -101,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <TextView
-                    android:id="@+id/tvContactNum"
+                    android:id="@+id/tvUpdateContactNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -117,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
                 <EditText
-                    android:id="@+id/edtContactNum"
+                    android:id="@+id/edtUpdateContactNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="012-3456789"
@@ -139,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <TextView
-                    android:id="@+id/tvAddress"
+                    android:id="@+id/tvUpdateAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Address: "
@@ -154,7 +162,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
                 <EditText
-                    android:id="@+id/edtAddressLine1"
+                    android:id="@+id/edtUpdateAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Address"
@@ -181,7 +189,7 @@
             android:background="@drawable/subbutton"/>
 
         <TextView
-            android:id="@+id/btnUpdateProfile"
+            android:id="@+id/btnUpdateProfileInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update Profile"

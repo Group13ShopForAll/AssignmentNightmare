@@ -65,7 +65,7 @@
         android:layout_width="60pt"
         android:layout_height="10pt"
         android:textSize="13dp"
-        android:id="@+id/forgot"
+        android:id="@+id/tvForgetPassword"
         android:text="Forget your password?"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnRegisterAccount"

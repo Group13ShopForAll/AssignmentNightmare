@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginPage extends AppCompatActivity {
 
     //Done by Jiun Lin
-    private TextView btnLoginAccount, btnRegisterAccount, tvErrorLoginBanner;
+    private TextView btnLoginAccount, btnRegisterAccount, tvErrorLoginBanner, tvForgetPassword;
     private EditText edtLoginAccount, edtLoginPassword;
     private ProgressBar pbLoginAcc;
 
@@ -43,6 +43,8 @@ public class LoginPage extends AppCompatActivity {
         btnRegisterAccount = (TextView) findViewById(R.id.btnRegisterAccount);
         tvErrorLoginBanner = (TextView) findViewById(R.id.tvErrorLoginBanner);
         pbLoginAcc = (ProgressBar) findViewById(R.id.pbLoginAcc);
+
+        tvForgetPassword = (TextView) findViewById(R.id.tvForgetPassword);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -91,9 +93,10 @@ public class LoginPage extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 pbLoginAcc.setVisibility(View.INVISIBLE);
                 tvErrorLoginBanner.setVisibility(View.VISIBLE);
-                finish();
+                return;
             }
         });
+
     }
 
     private void sendToHomePage() {

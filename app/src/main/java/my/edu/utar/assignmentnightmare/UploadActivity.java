@@ -71,6 +71,7 @@ public class UploadActivity extends AppCompatActivity {
         productImgRef = FirebaseStorage.getInstance().getReference().child(currentUserId).child("product images");
         userProductRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("products");
         homepageProductRef = FirebaseDatabase.getInstance().getReference().child("homepage").child("products");
+
         // while clicking on the add product image icon, trigger function to choose image from device storage
         ivAddProductImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +165,7 @@ public class UploadActivity extends AppCompatActivity {
         productMap.put("productPrice",productPrice);
         productMap.put("productStock",productStock);
         productMap.put("productImgUri",downloadUri);
+        productMap.put("sellerId",currentUserId);
 
         //store product info in particular user reference
         userProductRef.child(productName+currentUserId+saveCurrentTime).updateChildren(productMap).addOnSuccessListener(new OnSuccessListener() {
