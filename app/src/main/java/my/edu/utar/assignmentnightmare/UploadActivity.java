@@ -61,7 +61,6 @@ public class UploadActivity extends AppCompatActivity {
 
         btnUploadCancel = (FloatingActionButton) findViewById(R.id.btnUploadCancel);
         btnUploadConfirm = (FloatingActionButton) findViewById(R.id.btnUploadConfirm);
-        btnBackToProfile = (FloatingActionButton) findViewById(R.id.btnBackToProfile);
 
         pbUploadProduct = (ProgressBar) findViewById(R.id.pbUploadProduct);
 
@@ -88,6 +87,19 @@ public class UploadActivity extends AppCompatActivity {
             }
         });
 
+        // while user click on cross button clear all input data and return back to profile page
+        btnUploadCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                sendToProfileActivity();
+            }
+        });
+
+    }
+
+    private void sendToProfileActivity() {
+        startActivity(new Intent(UploadActivity.this, Profile.class));
     }
 
     private void validateProductInfo() {

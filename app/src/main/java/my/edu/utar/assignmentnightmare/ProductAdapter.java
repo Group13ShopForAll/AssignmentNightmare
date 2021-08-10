@@ -1,5 +1,6 @@
 package my.edu.utar.assignmentnightmare;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,21 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Product, ProductAdap
         holder.tvProductSoldPrice.setText(String.valueOf(model.getProductPrice()));
         holder.tvProductSoldStock.setText(String.valueOf(model.getProductStock()));
         Picasso.get().load(model.getProductImgUri()).into(holder.ivProductSoldImg);
+        
+        holder.cvProductSold.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProductDetail(v,position);
+            }
+        });
+        
+    }
+
+    private void openProductDetail(View v, int position) {
+        String productKey = getRef(position).getKey();
+        Intent intent = new Intent(v.getContext(), ProductActivity.class);
+        intent.putExtra("productKey",productKey);
+        v.getContext().startActivity(intent);
     }
 
     @NonNull
