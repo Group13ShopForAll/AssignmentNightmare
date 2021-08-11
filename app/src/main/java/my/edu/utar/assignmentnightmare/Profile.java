@@ -26,7 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Profile extends AppCompatActivity {
 
-    private ImageView btnUploadProduct, btnUpdateProfile;
+    private ImageView btnUploadProduct, btnUpdateProfile, btnMyProduct;
     private CircleImageView civProfileImg;
     private TextView tvProfileName;
     private FirebaseAuth mAuth;
@@ -117,14 +117,27 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        btnMyProduct = (ImageView) findViewById(R.id.btnMyProduct);
+        btnMyProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToMyProductPage();
+            }
+        });
+
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, LoginPage.class));
+                finish();
+                sendToLoginPage();
             }
         });
 
+    }
+
+    private void sendToMyProductPage() {
+        startActivity(new Intent(Profile.this, MyProductActivity.class));
     }
 
     private void sendToUpdateProfileActivity() {
@@ -134,5 +147,7 @@ public class Profile extends AppCompatActivity {
     private void sendToUploadActivity() {
         startActivity(new Intent(Profile.this,UploadActivity.class));
     }
-
+    private void sendToLoginPage() {
+        startActivity(new Intent(Profile.this, LoginPage.class));
+    }
 }

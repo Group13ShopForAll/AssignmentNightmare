@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/cvMyProduct">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/civMyProductImg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvItemName"
+        android:text="Name:"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/civMyProductImg"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMyProductName"
+        android:text="Item"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/tvItemName"
+        android:layout_marginLeft="10dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvItemPrice"
+        android:text="Price (RM):"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/civMyProductImg"
+        android:layout_below="@+id/tvItemName"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMyProductPrice"
+        android:text="9.90"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/tvItemPrice"
+        android:layout_below="@+id/tvMyProductName"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stock:"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/civMyProductImg"
+        android:layout_below="@+id/tvItemPrice"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMyProductStock"
+        android:text="1"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/tvAmount"
+        android:layout_below="@+id/tvMyProductPrice"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tvMyProductStock">
+
+        <Button
+            android:id="@+id/btnMyProductEdit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textAllCaps="false"
+            android:backgroundTint="#8BC34A"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:id="@+id/btnMyProductDelete"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textAllCaps="false"
+            android:backgroundTint="#D64444"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

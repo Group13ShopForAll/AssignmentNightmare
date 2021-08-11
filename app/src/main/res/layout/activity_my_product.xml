@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".MyProductActivity">
+
+    <!--Done By Jiun Lin-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="1300pt"
+            android:layout_height="150pt"
+            android:background="@drawable/top_bg" />
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10pt"
+            android:width="130pt"
+            android:background="@drawable/input_effect"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="13dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+
+        <TextView
+            android:layout_width="1800pt"
+            android:layout_height="120pt"
+            android:layout_below="@id/search"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bigboxx" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMyProduct"
+            android:layout_width="450dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/search"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="true">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/ivMyProductIcon"
+                    android:layout_width="25pt"
+                    android:layout_height="25pt"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/my_product_icon"/>
+                <TextView
+                    android:id="@+id/tvMyProductBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="My Products"
+                    android:layout_toRightOf="@+id/ivMyProductIcon"
+                    android:textSize="50sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-black"/>
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/separateLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/cardMyProduct"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/darker_gray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMyProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separateLine"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
