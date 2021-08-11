@@ -26,6 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
+// Done By Jiun Lin
 public class UpdateProductActivity extends AppCompatActivity {
 
     private Intent intentFromMyProductAdapter;
@@ -39,7 +40,7 @@ public class UpdateProductActivity extends AppCompatActivity {
     private Button btnUpdateProductInfo;
     private ProgressBar pbUpdateProduct;
 
-    private String productName, productDesc,  sellerId;
+    private String productName, productDesc;
     private Double productPrice;
     private int productStock;
     private Uri productImgUri;
