@@ -41,7 +41,7 @@ public class MyProductActivity extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("products"),
                                 Product.class).build();
         // apply the options at the product adapter and allocate the adapter to the recycler view at my product page
-        myProductAdapter = new MyProductAdapter(options);
+        myProductAdapter = new MyProductAdapter(currentUserId,options);
         rvMyProduct.setAdapter(myProductAdapter);
 
     }

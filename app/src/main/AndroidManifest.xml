@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AssignmentNightmare">
-        <activity android:name=".MyProductActivity"></activity>
+        <activity android:name=".UpdateProductActivity"></activity>
+        <activity android:name=".MyProductActivity" />
         <activity android:name=".PersonalInfoActivity" />
         <activity
             android:name=".DisplayOrder"
