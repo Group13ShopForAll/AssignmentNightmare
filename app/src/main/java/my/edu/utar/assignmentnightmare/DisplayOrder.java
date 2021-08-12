@@ -24,7 +24,7 @@ public class DisplayOrder extends AppCompatActivity {
 
         FirebaseRecyclerOptions<OrderModel> options =
                 new FirebaseRecyclerOptions.Builder<OrderModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child(""), OrderModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child(""), OrderModel.class) //child waiting video 28:05
                         .build();
 
         displayOrderAdapter = new DisplayOrderAdapter(options);
