@@ -21,10 +21,10 @@
                 android:layout_height="150pt"
                 android:background="@drawable/top_bg" />
 
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <SearchView
+                android:id="@+id/svSeachBar"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10pt"
                 android:width="130pt"
@@ -35,13 +35,14 @@
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp" />
+                android:paddingBottom="10dp"
+                app:menu="@menu/search"/>
 
 
             <TextView
                 android:layout_width="1800pt"
                 android:layout_height="120pt"
-                android:layout_below="@id/search"
+                android:layout_below="@id/svSeachBar"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bigboxx" />
 
@@ -49,7 +50,7 @@
                 android:id="@+id/card"
                 android:layout_width="450dp"
                 android:layout_height="196dp"
-                android:layout_below="@id/search"
+                android:layout_below="@id/svSeachBar"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="40dp"
                 app:cardCornerRadius="12dp"

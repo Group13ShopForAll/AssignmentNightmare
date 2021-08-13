@@ -2,7 +2,11 @@ package my.edu.utar.assignmentnightmare;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,8 @@ public class Homepagee extends AppCompatActivity {
 
     private RecyclerView rvSoldProduct;
     private ProductAdapter productAdapter;
+
+    private SearchView svSearchBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +104,34 @@ public class Homepagee extends AppCompatActivity {
             return false;
         });
 
+        // search view action
+        svSearchBar = (SearchView) findViewById(R.id.svSeachBar);
+        svSearchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                txtSearch(newText);
+                return false;
+            }
+        });
+
+    }
+
+    private void txtSearch(String str) {
+        FirebaseRecyclerOptions<Product> options =
+                new FirebaseRecyclerOptions.Builder<Product>()
+                .setQuery(FirebaseDatabase.getInstance().getReference()
+                        .child("homepage").child("products").orderByChild("productName")
+                        .startAt(str).endAt(str+"~"),Product.class )
+                        .build();
+        productAdapter = new ProductAdapter(options);
+        productAdapter.startListening();
+        rvSoldProduct.setAdapter(productAdapter);
     }
 
     @Override
