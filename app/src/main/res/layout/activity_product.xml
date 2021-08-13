@@ -10,6 +10,19 @@
     <!--Jiun Lin-->
     <!--Item Image-->
     <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="160pt"
+        android:layout_height="280pt"
+        android:layout_marginBottom="10pt"
+        android:background="@drawable/bgbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivItemSoldImage"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <ImageView
+        android:padding="10pt"
         android:id="@+id/ivItemSoldImage"
         android:layout_width="300dp"
         android:layout_height="300dp"
@@ -134,25 +147,65 @@
         android:id="@+id/tvItemSoldDesc"
         android:layout_width="350dp"
         android:layout_height="150dp"
-        android:text="This is a Milo Cup......"
-        android:textSize="15sp"
-        android:padding="20dp"
         android:layout_margin="10dp"
+        android:background="@drawable/white_border_edt"
+        android:padding="20dp"
+        android:text="This is a Milo Cup......"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/tvItemSoldName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemSoldName"
         app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent="0.8"
-        android:background="@drawable/white_border_edt"/>
+        app:layout_constraintWidth_percent="0.8" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuyNow"
+        android:layout_marginRight="10pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dec"
+            android:text="-"
+            android:textSize="25pt" />
+
+        <View
+            android:layout_width="5pt"
+            android:layout_height="wrap_content" />023
+
+        <TextView
+            android:id="@+id/edtquan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="12pt" />
+
+        <View
+            android:layout_width="5pt"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/inc"
+            android:text="+"
+            android:textSize="15pt" />
+    </LinearLayout>
+
 
     <!-- Buy now button-->
     <TextView
         android:id="@+id/btnBuyNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buy Now"
+        android:text="Add to Cart"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"

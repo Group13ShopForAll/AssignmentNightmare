@@ -62,15 +62,16 @@
                     android:layout_height="25pt"
                     android:layout_margin="10dp"
                     android:src="@drawable/my_product_icon"/>
+
                 <TextView
                     android:id="@+id/tvMyProductBanner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="My Products"
                     android:layout_toRightOf="@+id/ivMyProductIcon"
-                    android:textSize="50sp"
+                    android:fontFamily="sans-serif-black"
                     android:gravity="center"
-                    android:fontFamily="sans-serif-black"/>
+                    android:text="My Products"
+                    android:textSize="50sp" />
             </RelativeLayout>
 
 
@@ -89,8 +90,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/separateLine"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
     </RelativeLayout>
 

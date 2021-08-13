@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/forthbg"
+    tools:context=".ShippingFee">
+
+    <Button
+        android:id="@+id/backbutt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8pt"
+        android:layout_marginTop="8pt"
+        android:text="Back"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7pt"
+        android:layout_marginLeft="6pt"
+        android:layout_toRightOf="@id/backbutt"
+        android:fontFamily="monospace"
+        android:gravity="center_horizontal"
+        android:text="Shipping Options"
+        android:textColor="@color/white"
+        android:textSize="12pt"
+        android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/backbutt"
+            android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40pt"
+            android:src="@drawable/ship1"
+            android:id="@+id/ship1"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40pt"
+            android:src="@drawable/ship2"
+            android:id="@+id/ship2"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40pt"
+            android:src="@drawable/ship3"
+            android:id="@+id/ship3"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40pt"
+            android:src="@drawable/ship4"
+            android:id="@+id/ship4"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40pt"
+            android:src="@drawable/ship5"
+            android:id="@+id/ship5"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40pt"
+            android:src="@drawable/ship6"
+            android:id="@+id/ship6"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"/>
+
+        </LinearLayout>
+
+
+</RelativeLayout>

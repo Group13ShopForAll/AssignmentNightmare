@@ -28,7 +28,6 @@ public class Homepagee extends AppCompatActivity {
     //private RecyclerView rcvItem;
     //private ItemAdapter mItemAdapter;
 
-    //asd
     private RecyclerView rvSoldProduct;
     private ProductAdapter productAdapter;
 
@@ -75,26 +74,23 @@ public class Homepagee extends AppCompatActivity {
                     break;
                 case R.id.category:
                     item.setChecked(true);
-                    Intent intent1 = new Intent(Homepagee.this, Profile.class);
-                    startActivity(intent1);
                     overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                     finish();
+                    break;
                 case R.id.message:
                     item.setChecked(true);
-                    Intent intent2 = new Intent(Homepagee.this, Profile.class);
-                    startActivity(intent2);
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                    finish();
+                    //overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    //finish();
+                    break;
                 case R.id.cart:
                     item.setChecked(true);
-                    Intent intent3 = new Intent(Homepagee.this, Profile.class);
-                    startActivity(intent3);
+                    startActivity(new Intent(Homepagee.this, ShoppingCart.class));
                     overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                     finish();
+                    break;
                 case R.id.profile:
                     item.setChecked(true);
-                    Intent intent4 = new Intent(Homepagee.this, Profile.class);
-                    startActivity(intent4);
+                    startActivity(new Intent(Homepagee.this, Profile.class));
                     overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                     finish();
                     break;

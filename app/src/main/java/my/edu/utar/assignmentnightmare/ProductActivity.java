@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,16 +22,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+
 public class ProductActivity extends AppCompatActivity {
 
-    private DatabaseReference productRef, sellerRef;
+    private DatabaseReference productRef, sellerRef, reff;
 
     private ImageView ivItemSoldImage;
     private TextView tvItemSoldName, tvItemSoldPrice, tvItemSoldSeller, tvItemSoldDesc, tvItemSoldQuantity, btnBuyNow;
     private ImageButton imgBtnBackToHomepage;
 
     private Intent intentFromProductAdapter;
-
+    private TextView inc, dec, tv;
+    private Integer count;
     private String productKey;
     private String productName, productPrice, productStock, productDesc, sellerId, sellerUsername;
     private Uri productImgUri;
@@ -85,6 +91,32 @@ public class ProductActivity extends AppCompatActivity {
                 tvItemSoldDesc.setText(productDesc);
                 tvItemSoldQuantity.setText(productStock);
 
+
+                inc = findViewById(R.id.inc);
+                dec = findViewById(R.id.dec);
+                tv = findViewById(R.id.edtquan);
+                count = 1;
+                inc.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){
+                        count++;
+                        tv.setText(count+"");
+                    }
+                });
+                dec.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){
+                        if(count == 1){
+                            tv.setText(count+"");
+                        }
+                        else{
+                            count--;
+                            tv.setText(count+"");
+                        }
+                    }
+                });
+
+
             }
 
             @Override
@@ -97,6 +129,26 @@ public class ProductActivity extends AppCompatActivity {
         imgBtnBackToHomepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+                sendToHomepage();
+            }
+        });
+
+        btnBuyNow.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                HashMap productMap = new HashMap();
+                productMap.put("productName",productName);
+                productMap.put("productDesc",productDesc);
+                productMap.put("productStock",Integer.parseInt(productStock));
+                productMap.put("productImgUri",productImgUri.toString());
+                productMap.put("productQuantity",count);
+                Double totalsingle = Double.valueOf(count) * Double.valueOf(productPrice);
+                productMap.put("productPrice",Double.valueOf(totalsingle));
+
+                reff = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
+                reff.child(productKey).updateChildren(productMap);
+
                 finish();
                 sendToHomepage();
             }

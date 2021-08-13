@@ -107,10 +107,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/navicorner"
-        app:menu="@menu/navigationbar"
-        app:itemRippleColor="#BDB76B"
         app:itemIconTint="@color/icon_color"
-        app:itemTextColor="#BDB76B">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:itemRippleColor="#BDB76B"
+        app:itemTextColor="#BDB76B"
+        app:menu="@menu/navigationbar"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

@@ -47,28 +47,26 @@ public class Profile extends AppCompatActivity {
             switch(item.getItemId()){
                 case R.id.home:
                     item.setChecked(true);
-                    Intent intent = new Intent(Profile.this, Homepagee.class);
-                    startActivity(intent);
+                    startActivity(new Intent(Profile.this, Homepagee.class));
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                     finish();
+                    break;
                 case R.id.category:
                     item.setChecked(true);
-                    Intent intent1 = new Intent(Profile.this, Homepagee.class);
-                    startActivity(intent1);
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                     finish();
+                    break;
                 case R.id.message:
                     item.setChecked(true);
-                    Intent intent2 = new Intent(Profile.this, Homepagee.class);
-                    startActivity(intent2);
-                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-                    finish();
+                    //overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                    //finish();
+                    break;
                 case R.id.cart:
                     item.setChecked(true);
-                    Intent intent3 = new Intent(Profile.this, Homepagee.class);
-                    startActivity(intent3);
+                    startActivity(new Intent(Profile.this, ShoppingCart.class));
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                     finish();
+                    break;
                 case R.id.profile:
                     item.setChecked(true);
                    break;

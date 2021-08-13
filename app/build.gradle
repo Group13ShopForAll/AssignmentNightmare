@@ -16,7 +16,14 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        release {
+            storeFile file("HMS.jks")
+            storePassword "abc123"
+            keyAlias "HMS"
+            keyPassword "abc123"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -49,6 +56,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.google.android.material:material:1.1.0-alpha10'
+    implementation 'com.huawei.hms:wallet:4.0.2.301'
+    implementation 'com.huawei.hms:base:3.0.3.301'
 }
 
 apply plugin: 'com.google.gms.google-services'
