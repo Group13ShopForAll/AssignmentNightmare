@@ -50,7 +50,7 @@ public class ProductActivity extends AppCompatActivity {
         productRef = FirebaseDatabase.getInstance().getReference().child("homepage").child("products").child(productKey);
 
         imgBtnBackToHomepage = (ImageButton) findViewById(R.id.imgBtnBackToHomepage);
-        btnBuyNow = (TextView) findViewById(R.id.btnBuyNow);
+        btnBuyNow = (TextView) findViewById(R.id.btnAddToCart);
 
         ivItemSoldImage = (ImageView) findViewById(R.id.ivItemSoldImage);
         tvItemSoldName = (TextView) findViewById(R.id.tvItemSoldName);

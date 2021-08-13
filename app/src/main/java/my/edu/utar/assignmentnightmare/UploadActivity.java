@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -31,7 +32,7 @@ import java.util.HashMap;
 public class UploadActivity extends AppCompatActivity {
 
     //Done by Jiun Lin
-    private ImageView ivAddProductImage;
+    private ImageButton imgBtnAddProductImage;
     private EditText edtProductName, edtProductDesc, edtProductPrice, edtProductStock;
     private FloatingActionButton btnUploadCancel, btnUploadConfirm, btnBackToProfile;
     private ProgressBar pbUploadProduct;
@@ -53,7 +54,7 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
-        ivAddProductImage = (ImageView) findViewById(R.id.ivAddImage);
+        imgBtnAddProductImage = (ImageButton) findViewById(R.id.imgBtnAddImage);
         edtProductName = (EditText) findViewById(R.id.edtProductName);
         edtProductDesc = (EditText) findViewById(R.id.edtProductDesc);
         edtProductPrice = (EditText) findViewById(R.id.edtProductPrice);
@@ -72,7 +73,7 @@ public class UploadActivity extends AppCompatActivity {
         homepageProductRef = FirebaseDatabase.getInstance().getReference().child("homepage").child("products");
 
         // while clicking on the add product image icon, trigger function to choose image from device storage
-        ivAddProductImage.setOnClickListener(new View.OnClickListener() {
+        imgBtnAddProductImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGallery();
@@ -221,7 +222,7 @@ public class UploadActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==Gallery_Pick && resultCode==RESULT_OK && data!=null && data.getData()!=null){
             productImgUri = data.getData();
-            ivAddProductImage.setImageURI(productImgUri);
+            imgBtnAddProductImage.setImageURI(productImgUri);
         }else{
             Toast.makeText(UploadActivity.this, "Error occurred while picking image from local storage.", Toast.LENGTH_SHORT).show();
         }
