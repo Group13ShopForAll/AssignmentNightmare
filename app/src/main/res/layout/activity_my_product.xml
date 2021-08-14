@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFDE7"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
     tools:context=".MyProductActivity">
@@ -14,42 +15,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <TextView
             android:layout_width="1300pt"
-            android:layout_height="150pt"
+            android:layout_height="20pt"
             android:background="@drawable/top_bg" />
-
-        <EditText
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10pt"
-            android:width="130pt"
-            android:background="@drawable/input_effect"
-            android:drawableLeft="@drawable/ic_search"
-            android:drawablePadding="13dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
 
 
         <TextView
             android:layout_width="1800pt"
             android:layout_height="120pt"
-            android:layout_below="@id/search"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/bigboxx" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardMyProduct"
             android:layout_width="450dp"
             android:layout_height="100dp"
-            android:layout_below="@id/search"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             app:cardCornerRadius="12dp"
             app:cardUseCompatPadding="true">
             <RelativeLayout
@@ -94,5 +79,13 @@
             android:layout_marginRight="10dp" />
 
     </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/backarr"
+        android:layout_width="20pt"
+        android:layout_height="15pt"
+        android:background="@drawable/backarrow"
+        android:layout_marginLeft="6pt"
+        android:layout_marginTop="6pt"/>
 
 </RelativeLayout>

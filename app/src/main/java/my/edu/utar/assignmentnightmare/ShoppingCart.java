@@ -46,7 +46,6 @@ public class ShoppingCart extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_shopping_cart);
 
-        // find the recycler and set up the layout manager
         rcvShopCart = (RecyclerView) findViewById(R.id.rcvShopCart);
         rcvShopCart.setLayoutManager(new LinearLayoutManager(this));
 
@@ -55,16 +54,17 @@ public class ShoppingCart extends AppCompatActivity {
 
         SCReference = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("cart");
 
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
+        FirebaseRecyclerOptions<CartProduct> options =
+                new FirebaseRecyclerOptions.Builder<CartProduct>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("cart"),
-                                Product.class).build();
+                                CartProduct.class).build();
 
         DatabaseReference reff;
         String productKey;
         Intent intentFromProductAdapter = getIntent();
         productKey = intentFromProductAdapter.getStringExtra("productKey");
         TextView totalAmount = (TextView) findViewById(R.id.amount);
+        int totalquan;
         arrow = (TextView) findViewById(R.id.arrow);
         TextView fee = (TextView) findViewById(R.id.fee);
         String shipname = getIntent().getStringExtra("keyname");
@@ -78,6 +78,7 @@ public class ShoppingCart extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                         double price = Double.valueOf(snapshot.child("productPrice").getValue(Long.class));
                         count = count + price;
+
                         arrow.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -86,7 +87,8 @@ public class ShoppingCart extends AppCompatActivity {
                             }
                         });
                         fee.setText(shipprice.toString());
-                        totalAmount.setText(String.format("%.2f", count + shipprice));
+                        Double total = count + shipprice;
+                        totalAmount.setText(String.format("%.2f", total));
 
                 }
             }
@@ -100,7 +102,7 @@ public class ShoppingCart extends AppCompatActivity {
         rcvShopCart.setAdapter(cartAdapter);
 
         TextView btnCheckout = (TextView) findViewById(R.id.btnCheckout);
-
+        Intent intent = new Intent(ShoppingCart.this, Checkout.class);
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +110,10 @@ public class ShoppingCart extends AppCompatActivity {
                     Toast.makeText(ShoppingCart.this, "Please select shipping method", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(ShoppingCart.this, "Proceed", Toast.LENGTH_SHORT).show();
+                    intent.putExtra("total", Double.valueOf(totalAmount.getText().toString()));
+                    intent.putExtra("shipname", shipname);
+                    intent.putExtra("shipprice", shipprice);
+                    startActivity(intent);
                 }
             }
         });
@@ -126,7 +131,6 @@ public class ShoppingCart extends AppCompatActivity {
                     break;
                 case R.id.category:
                     item.setChecked(true);
-                    finish();
                     break;
                 case R.id.message:
                     item.setChecked(true);

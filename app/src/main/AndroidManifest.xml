@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AssignmentNightmare">
         <activity
+            android:name=".Voucher"
+            android:exported="true" />
+        <activity
+            android:name=".Checkout"
+            android:exported="true" />
+        <activity
             android:name=".ShippingFee"
             android:exported="true" />
         <activity android:name=".UpdateProductActivity" />

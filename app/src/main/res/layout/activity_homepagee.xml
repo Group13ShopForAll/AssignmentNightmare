@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
+    android:background="#FFFDE7"
     android:focusableInTouchMode="true"
     tools:context=".Homepagee">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/scroll">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,22 +23,33 @@
                 android:layout_height="150pt"
                 android:background="@drawable/top_bg" />
 
+            <TextView
+                android:id="@+id/ic"
+                android:layout_width="45pt"
+                android:layout_height="30pt"
+                android:layout_marginStart="6pt"
+                android:layout_marginLeft="6pt"
+                android:layout_marginTop="6pt"
+                android:layout_marginEnd="3pt"
+                android:layout_marginBottom="6pt"
+                android:background="@drawable/whitelogo" />
+
             <SearchView
                 android:id="@+id/svSeachBar"
-                android:layout_width="300dp"
+                android:layout_width="260dp"
                 android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
+                android:iconifiedByDefault="false"
+                android:focusable="true"
                 android:layout_marginTop="10pt"
-                android:width="130pt"
+                android:layout_toRightOf="@id/ic"
                 android:background="@drawable/input_effect"
                 android:drawableLeft="@drawable/ic_search"
-                android:drawablePadding="13dp"
+                android:drawablePadding="5dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                app:menu="@menu/search"/>
+                android:paddingBottom="10dp" />
+                <!--app:menu="@menu/search"-->
 
 
             <TextView

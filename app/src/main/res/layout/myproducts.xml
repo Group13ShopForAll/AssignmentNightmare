@@ -18,39 +18,44 @@
         android:src="@mipmap/ic_launcher"
         android:id="@+id/civMyProductImg" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvItemName"
-        android:text="Name:"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:layout_toRightOf="@+id/civMyProductImg"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/civMyProductImg"
+            android:text="Name:"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:fontFamily="@font/crete_round"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvMyProductName"
-        android:text="Item"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:layout_toRightOf="@+id/tvItemName"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/tvMyProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tvItemName"
+            android:text="Item"
+            android:fontFamily="@font/crete_round"
+            android:textColor="@color/black"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvItemPrice"
-        android:text="Price (RM):"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:layout_toRightOf="@id/civMyProductImg"
-        android:layout_below="@+id/tvItemName"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/tvItemPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvItemName"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/civMyProductImg"
+            android:text="Price (RM):"
+            android:fontFamily="@font/crete_round"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -68,6 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stock:"
+        android:fontFamily="@font/crete_round"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:layout_marginLeft="10dp"
@@ -98,6 +104,7 @@
             android:text="Edit"
             android:textAllCaps="false"
             android:backgroundTint="#8BC34A"
+            android:fontFamily="@font/crete_round"
             android:layout_marginRight="5dp"/>
 
         <Button
@@ -106,6 +113,7 @@
             android:layout_height="wrap_content"
             android:text="Delete"
             android:textAllCaps="false"
+            android:fontFamily="@font/crete_round"
             android:backgroundTint="#D64444"
             android:layout_marginLeft="5dp"/>
 

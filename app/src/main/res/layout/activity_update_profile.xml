@@ -17,49 +17,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/civUpdateProfileImg"
-            android:layout_gravity="center"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@drawable/add_profile_img_icon"
-            android:layout_marginTop="20dp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/add_profile_img_icon" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/tvUpdateUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:fontFamily="sans-serif-black"
                     android:text="Username: "
-                    android:textColor="@color/white"
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:fontFamily="sans-serif-black"/>
+                    android:textColor="@color/white" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
+
                 <EditText
                     android:id="@+id/edtUpdateUsername"
-                    android:layout_margin="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:hint="Type your username"
-                    android:textColorHint="@color/white"/>
+                    android:textColorHint="@color/white" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -67,35 +72,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/tvUpdateEmailBanner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Email: "
-                    android:textColor="@color/white"
+                    android:fontFamily="sans-serif-black"
                     android:padding="10dp"
+                    android:text="Email: "
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:fontFamily="sans-serif-black"/>
+                    android:textColor="@color/white" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
+
                 <TextView
                     android:id="@+id/tvUpdateEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="10dp"
-                    android:textColor="@color/white"
                     android:text="example@email.com"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -104,37 +112,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/tvUpdateContactNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Contact Number: "
-                    android:textColor="@color/white"
+                    android:fontFamily="sans-serif-black"
                     android:padding="10dp"
+                    android:text="Contact Number: "
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:fontFamily="sans-serif-black"/>
+                    android:textColor="@color/white" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
+
                 <EditText
                     android:id="@+id/edtUpdateContactNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="012-3456789"
-                    android:textColorHint="@color/white"
-                    android:layout_marginTop="30dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="10dp"
+                    android:hint="012-3456789"
                     android:inputType="phone"
-                    android:padding="10dp" />
+                    android:padding="10dp"
+                    android:textColorHint="@color/white" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -142,82 +153,81 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/tvUpdateAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address: "
-                    android:textColor="@color/white"
                     android:layout_margin="10dp"
-                    android:textAppearance="?android:textAppearanceLarge"
                     android:fontFamily="sans-serif-black"
-                    android:padding="10dp" />
+                    android:padding="10dp"
+                    android:text="Address: "
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/white" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
+
                 <EditText
                     android:id="@+id/edtUpdateAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Address"
-                    android:textColorHint="@color/white"
                     android:layout_margin="10dp"
+                    android:hint="Address"
                     android:inputType="textPostalAddress"
-                    android:padding="10dp" />
+                    android:padding="10dp"
+                    android:textColorHint="@color/white" />
 
             </RelativeLayout>
         </LinearLayout>
+
         <TextView
             android:id="@+id/btnResetPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reset Password"
             android:layout_gravity="center"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/subbutton"/>
+            android:background="@drawable/subbutton"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="Reset Password"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/btnUpdateProfileInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update Profile"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:background="@drawable/subbutton"
             android:paddingLeft="30dp"
+            android:paddingTop="10dp"
             android:paddingRight="30dp"
-            android:background="@drawable/subbutton"/>
+            android:paddingBottom="10dp"
+            android:text="Update Profile"
+            android:textSize="25sp"
+            android:textStyle="bold" />
     </LinearLayout>
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/backprofile"
+        android:layout_width="20pt"
+        android:layout_height="15pt"
+        android:background="@drawable/backarrow"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/botnav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/navicorner"
-        app:menu="@menu/navigationbar"
-        app:itemRippleColor="#BDB76B"
-        app:itemIconTint="@color/icon_color"
-        app:itemTextColor="#BDB76B">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".04" />
 </androidx.constraintlayout.widget.ConstraintLayout>

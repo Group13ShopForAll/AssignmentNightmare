@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientbg"
+    android:background="@drawable/splashbg"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/biglogo"
-        android:layout_width="328dp"
-        android:layout_height="239dp"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52pt"
-        app:srcCompat="@drawable/logowifcircle"/>
+        android:layout_marginTop="72pt"
+        app:srcCompat="@drawable/whitelogo" />
 
     <TextView
         android:id="@+id/desc"
@@ -22,8 +22,8 @@
         android:layout_below="@id/biglogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80pt"
-        android:fontFamily="monospace"
-        android:text="HELLO! Welcome to SHOP4ALL"
+        android:fontFamily="@font/crete_round"
+        android:text="Welcome to SHOP4ALL"
         android:textColor="@color/white"
         android:textSize="8pt"
         android:textStyle="normal" />
@@ -35,7 +35,7 @@
         android:layout_below="@id/desc"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5pt"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="@font/crete_round"
         android:text="''  It's an ADD TO CART kinda day! ''"
         android:textColor="@color/white"
         android:textSize="6pt"

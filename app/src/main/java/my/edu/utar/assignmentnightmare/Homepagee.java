@@ -1,15 +1,22 @@
 package my.edu.utar.assignmentnightmare;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +53,7 @@ public class Homepagee extends AppCompatActivity {
         // Done by Jiun Lin
         // get recycler view at home page
         rvSoldProduct = (RecyclerView) findViewById(R.id.rvSoldProduct);
-        rvSoldProduct.setLayoutManager(new LinearLayoutManager(this));
+        rvSoldProduct.setLayoutManager(new GridLayoutManager(this, 2));
         // set up recycler view options at home page for sold product
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
@@ -71,12 +78,15 @@ public class Homepagee extends AppCompatActivity {
         });
 
 
+
+        NestedScrollView scrolls = (NestedScrollView) findViewById(R.id.scroll);
         BottomNavigationView bottomNavigationView = findViewById(R.id.botnav);
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch(item.getItemId()){
                 case R.id.home:
                     item.setChecked(true);
+                    scrolls.smoothScrollTo(0, 0);
                     break;
                 case R.id.category:
                     item.setChecked(true);
@@ -109,6 +119,7 @@ public class Homepagee extends AppCompatActivity {
         svSearchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                svSearchBar.onActionViewExpanded();
                 txtSearch(query);
                 return false;
             }
@@ -132,6 +143,23 @@ public class Homepagee extends AppCompatActivity {
         productAdapter = new ProductAdapter(options);
         productAdapter.startListening();
         rvSoldProduct.setAdapter(productAdapter);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
     }
 
     @Override

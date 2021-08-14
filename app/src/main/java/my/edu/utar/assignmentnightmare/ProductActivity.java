@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProductActivity extends AppCompatActivity {
 
     private DatabaseReference productRef, sellerRef, reff;
@@ -31,7 +35,8 @@ public class ProductActivity extends AppCompatActivity {
     private ImageView ivItemSoldImage;
     private TextView tvItemSoldName, tvItemSoldPrice, tvItemSoldSeller, tvItemSoldDesc, tvItemSoldQuantity, btnBuyNow;
     private ImageButton imgBtnBackToHomepage;
-
+    private CircleImageView civProfileImg;
+    private TextView tvProfileName;
     private Intent intentFromProductAdapter;
     private TextView inc, dec, tv;
     private Integer count;
@@ -42,6 +47,7 @@ public class ProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_product);
 
         intentFromProductAdapter = getIntent();
@@ -58,6 +64,7 @@ public class ProductActivity extends AppCompatActivity {
         tvItemSoldSeller = (TextView) findViewById(R.id.tvItemSoldSeller);
         tvItemSoldDesc = (TextView) findViewById(R.id.tvItemSoldDesc);
         tvItemSoldQuantity = (TextView) findViewById(R.id.tvItemSoldQuantity);
+        civProfileImg = (CircleImageView) findViewById(R.id.profilepicpro);
 
         productRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,6 +83,10 @@ public class ProductActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         sellerUsername = snapshot.child("user profile").child("username").getValue().toString();
                         tvItemSoldSeller.setText(sellerUsername);
+
+                        Uri profileImg = Uri.parse(snapshot.child("user profile").child("profile image").getValue().toString());
+                        //display profile image and username on respective field
+                        Picasso.get().load(profileImg).into(civProfileImg);
                     }
 
                     @Override
@@ -90,7 +101,7 @@ public class ProductActivity extends AppCompatActivity {
                 tvItemSoldPrice.setText(productPrice);
                 tvItemSoldDesc.setText(productDesc);
                 tvItemSoldQuantity.setText(productStock);
-
+                tvItemSoldDesc.setMovementMethod(new ScrollingMovementMethod());
 
                 inc = findViewById(R.id.inc);
                 dec = findViewById(R.id.dec);
@@ -134,25 +145,31 @@ public class ProductActivity extends AppCompatActivity {
             }
         });
 
-        btnBuyNow.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                HashMap productMap = new HashMap();
-                productMap.put("productName",productName);
-                productMap.put("productDesc",productDesc);
-                productMap.put("productStock",Integer.parseInt(productStock));
-                productMap.put("productImgUri",productImgUri.toString());
-                productMap.put("productQuantity",count);
-                Double totalsingle = Double.valueOf(count) * Double.valueOf(productPrice);
-                productMap.put("productPrice",Double.valueOf(totalsingle));
 
-                reff = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
-                reff.child(productKey).updateChildren(productMap);
+            btnBuyNow.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    if(count > Integer.parseInt(productStock)){
+                        Toast.makeText(ProductActivity.this, "Stock Insufficient", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        HashMap productMap = new HashMap();
+                        productMap.put("productName", productName);
+                        productMap.put("productDesc", productDesc);
+                        productMap.put("productStock", Integer.parseInt(productStock));
+                        productMap.put("productImgUri", productImgUri.toString());
+                        productMap.put("productQuantity", count);
+                        Double totalsingle = Double.valueOf(count) * Double.valueOf(productPrice);
+                        productMap.put("productPrice", Double.valueOf(totalsingle));
 
-                finish();
-                sendToHomepage();
-            }
-        });
+                        reff = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
+                        reff.child(productKey).updateChildren(productMap);
+
+                        finish();
+                        sendToHomepage();
+                    }
+                }
+            });
 
     }
 

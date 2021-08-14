@@ -36,6 +36,7 @@ public class ShippingFee extends AppCompatActivity {
                 intent.putExtra("keyname", shipname);
                 intent.putExtra("keyprice", shipprice);
                 startActivity(intent);
+                finish();
             }
         });
         ship2.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,7 @@ public class ShippingFee extends AppCompatActivity {
                 intent.putExtra("keyname", shipname);
                 intent.putExtra("keyprice", shipprice);
                 startActivity(intent);
+                finish();
             }
         });
         ship3.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +56,7 @@ public class ShippingFee extends AppCompatActivity {
                 intent.putExtra("keyname", shipname);
                 intent.putExtra("keyprice", shipprice);
                 startActivity(intent);
+                finish();
             }
         });
         ship4.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +66,7 @@ public class ShippingFee extends AppCompatActivity {
                 intent.putExtra("keyname", shipname);
                 intent.putExtra("keyprice", shipprice);
                 startActivity(intent);
+                finish();
             }
         });
         ship5.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +76,7 @@ public class ShippingFee extends AppCompatActivity {
                 intent.putExtra("keyname", shipname);
                 intent.putExtra("keyprice", shipprice);
                 startActivity(intent);
+                finish();
             }
         });
         ship6.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +86,7 @@ public class ShippingFee extends AppCompatActivity {
                 intent.putExtra("keyname", shipname);
                 intent.putExtra("keyprice", shipprice);
                 startActivity(intent);
+                finish();
             }
         });
 

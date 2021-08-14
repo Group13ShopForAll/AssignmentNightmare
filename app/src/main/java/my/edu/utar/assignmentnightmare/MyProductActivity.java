@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageButton;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,7 +19,7 @@ public class MyProductActivity extends AppCompatActivity {
     // Done by Jiun Lin
     private RecyclerView rvMyProduct;
     private MyProductAdapter myProductAdapter;
-
+    private ImageButton back;
     private FirebaseAuth mAuth;
     private DatabaseReference myProductRef;
 
@@ -25,7 +28,17 @@ public class MyProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_my_product);
+
+        back = (ImageButton) findViewById(R.id.backarr);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // find the recycler and set up the layout manager
         rvMyProduct = (RecyclerView) findViewById(R.id.rvMyProduct);

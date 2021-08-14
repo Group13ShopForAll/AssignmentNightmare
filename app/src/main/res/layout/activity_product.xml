@@ -11,7 +11,7 @@
     <!--Item Image-->
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="180pt"
+        android:layout_width="160pt"
         android:layout_height="635dp"
         android:layout_marginBottom="10pt"
         android:background="@drawable/bgbg"
@@ -32,10 +32,9 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
-            android:padding="10pt"
             android:id="@+id/ivItemSoldImage"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/milocup"
            android:layout_gravity="center"/>
 
@@ -43,129 +42,170 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <RelativeLayout
+            <!--item sold name-->
+            <TextView
+                android:id="@+id/tvItemSoldName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <!--RM Banner-->
-                <TextView
-                    android:id="@+id/tvRM"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="RM"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="15dp"
-                    android:textColor="@color/white" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <!--Item sold price-->
-                <TextView
-                    android:id="@+id/tvItemSoldPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9.90"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/white" />
-            </RelativeLayout>
+                android:text="Milo Cup"
+                android:fontFamily="@font/crete_round"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="20dp"/>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <!-- Seller Banner-->
-                <TextView
-                    android:id="@+id/tvSellerBanner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Seller: "
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="50dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2">
-                <!-- Item sold seller-->
-                <TextView
-                    android:id="@+id/tvItemSoldSeller"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Is me"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/white"/>
-            </RelativeLayout>
+
+            <View
+                android:layout_width="45pt"
+                android:layout_height="0dp"/>
+
+
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <!--item sold name-->
+
+                <!--RM Banner-->
                 <TextView
-                    android:id="@+id/tvItemSoldName"
+                    android:id="@+id/tvRM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Milo Cup"
+                    android:layout_marginLeft="20dp"
+                    android:text="RM"
+                    android:fontFamily="@font/crete_round"
+                    android:textAlignment="textEnd"
+                    android:textColor="#BA002C"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"/>
-            </RelativeLayout>
-            <RelativeLayout
+                    android:textStyle="bold" />
+
+
+
+                <!--Item sold price-->
+            <TextView
+                android:id="@+id/tvItemSoldPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_marginLeft="10dp"
+                android:text="9.90"
+                android:textColor="#BA002C"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginTop="2pt"
+                android:layout_marginRight="8pt"
+                android:orientation="horizontal">
                 <!--current remaining stock-->
                 <TextView
                     android:id="@+id/tvStockRemaining"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Stock Remaining: "
-                    android:textSize="20sp"
-                    android:textColor="@color/white"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                    android:fontFamily="@font/crete_round"
+                    android:text="Stock : "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/tvItemSoldQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="10dp"/>
-            </RelativeLayout>
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crete_round"
+                    android:text=" left"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1pt"
+            android:layout_marginTop="5pt"
+            android:layout_marginBottom="5pt"
+            android:layout_marginLeft="6pt"
+            android:layout_marginRight="6pt"
+            android:background="@color/black"/>
 
+        <!-- Seller Banner-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15pt"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSellerBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seller "
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginRight="5pt"
+                android:fontFamily="@font/crete_round"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="1pt"
+                android:layout_marginRight="5pt"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilepicpro"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/sponge"
+                app:civ_border_color="#FDA250"
+                android:layout_marginRight="5pt"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/tvItemSoldSeller"
+                android:layout_width="70pt"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crete_round"
+                android:text="Seller name"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1pt"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="6pt"
+            android:layout_marginRight="6pt"
+            android:background="@color/black"/>
         <!--Item Description-->
         <TextView
             android:id="@+id/tvItemSoldDesc"
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_margin="10dp"
-            android:background="@drawable/white_border_edt"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="This is a Milo Cup......"
+            android:fontFamily="@font/crete_round"
+            android:scrollbars = "vertical"
             android:layout_gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp"/>
 
         <LinearLayout
@@ -179,36 +219,38 @@
                 <!-- Pick amount-->
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="150dp">
+                    android:layout_centerHorizontal="true">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:id="@+id/dec"
                         android:text="-"
-                        android:textSize="15pt" />
+                        android:gravity="center"
+                        android:textSize="20pt" />
 
                     <View
                         android:layout_width="5pt"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="5pt" />
 
                     <TextView
                         android:id="@+id/edtquan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
-                        android:textSize="12pt" />
+                        android:fontFamily="@font/crete_round"
+                        android:textSize="15pt" />
 
                     <View
                         android:layout_width="5pt"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="5pt" />
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:id="@+id/inc"
                         android:text="+"
                         android:textSize="15pt" />
@@ -217,32 +259,36 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1">
                 <!-- Add To Cart button-->
                 <TextView
                     android:id="@+id/btnAddToCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/subbutton"
+                    android:padding="10dp"
                     android:text="Add to Cart"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:padding="10dp"
-                    android:background="@drawable/subbutton"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/imgBtnBackToHomepage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="20pt"
+        android:layout_height="15pt"
+        android:background="@drawable/backarrow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias=".04"
-        app:layout_constraintHorizontal_bias=".06"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".04" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

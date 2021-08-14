@@ -4,13 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -44,7 +49,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private TextView tvUpdateEmail, btnUpdateProfileInfo, btnResetPassword;
 
     private ProgressBar pbUpdateProfile;
-
+    private ImageButton imgBtnBackToHomepage;
     private FirebaseAuth mAuth;
     private DatabaseReference userProfileRef;
     private StorageReference userProfileImgRef;
@@ -58,6 +63,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_update_profile);
 
         mAuth = FirebaseAuth.getInstance();
@@ -67,6 +73,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         userProfileRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("user profile");
         userProfileImgRef = FirebaseStorage.getInstance().getReference().child(currentUserId).child("profile images");
 
+        imgBtnBackToHomepage = (ImageButton) findViewById(R.id.backprofile);
         civUpdateProfileImg = (CircleImageView) findViewById(R.id.civUpdateProfileImg);
         edtUpdateUsername = (EditText) findViewById(R.id.edtUpdateUsername);
         edtUpdateContactNum = (EditText) findViewById(R.id.edtUpdateContactNum);
@@ -132,6 +139,12 @@ public class UpdateProfileActivity extends AppCompatActivity {
                                 return;
                             }
                         }).show();
+            }
+        });
+        imgBtnBackToHomepage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -262,6 +275,22 @@ public class UpdateProfileActivity extends AppCompatActivity {
         }else{
             Toast.makeText(UpdateProfileActivity.this, "Error occurred while picking image from local storage.", Toast.LENGTH_SHORT).show();
         }
+    }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
     }
 
 }

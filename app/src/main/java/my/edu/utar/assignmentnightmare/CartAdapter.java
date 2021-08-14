@@ -31,19 +31,19 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 
-public class CartAdapter extends FirebaseRecyclerAdapter<Product, CartAdapter.myViewHolder> {
+public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapter.myViewHolder> {
 
-    public CartAdapter(@NonNull FirebaseRecyclerOptions<Product> options) {
+    public CartAdapter(@NonNull FirebaseRecyclerOptions<CartProduct> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull CartAdapter.myViewHolder holder, int position, @NonNull Product model) {
+    protected void onBindViewHolder(@NonNull CartAdapter.myViewHolder holder, int position, @NonNull CartProduct model) {
         holder.scName.setText(model.getProductName());
         holder.scSoldPrice.setText(String.valueOf(String.format("%.2f", model.getProductPrice())));
         holder.scStock.setText(String.valueOf(model.getProductStock()));
+        holder.scQuantity.setText(String.valueOf(model.getProductQuantity()));
         Picasso.get().load(model.getProductImgUri()).into(holder.scImage);
-
 
     }
 

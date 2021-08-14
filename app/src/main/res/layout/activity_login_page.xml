@@ -17,22 +17,23 @@
         android:id="@+id/box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/login"
+        android:layout_centerHorizontal="true"
         android:width="150pt"
         android:height="150pt"
         android:background="@drawable/square" />
 
     <!-- Email -->
     <TextView
+        android:id="@+id/mail"
         android:layout_width="50pt"
         android:layout_height="10pt"
-        android:id="@+id/mail"
-        android:text="  Email:"
-        android:layout_alignLeft="@id/edtLoginAccount"
         android:layout_below="@id/login"
-        android:textColor="@color/black"
-        android:layout_marginTop="10pt"/>
+        android:layout_alignLeft="@id/edtLoginAccount"
+        android:fontFamily="@font/crete_round"
+        android:layout_marginTop="10pt"
+        android:text="  Email:"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/edtLoginAccount"
@@ -52,48 +53,49 @@
 
 
     <TextView
+        android:id="@+id/pass"
         android:layout_width="50pt"
         android:layout_height="10pt"
-        android:id="@+id/pass"
-        android:text="  Password:"
-        android:layout_alignLeft="@id/edtLoginAccount"
         android:layout_below="@id/edtLoginAccount"
-        android:textColor="@color/black"
-        android:layout_marginTop="5pt"/>
+        android:layout_alignLeft="@id/edtLoginAccount"
+        android:layout_marginTop="5pt"
+        android:fontFamily="@font/crete_round"
+        android:text="  Password:"
+        android:textColor="@color/black" />
 
     <TextView
-        android:layout_width="60pt"
-        android:layout_height="10pt"
-        android:textSize="13dp"
         android:id="@+id/tvForgetPassword"
-        android:text="Forget your password?"
-        android:layout_centerHorizontal="true"
+        android:layout_width="80pt"
+        android:layout_height="10pt"
         android:layout_below="@id/btnRegisterAccount"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Forget your password?"
         android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        android:textStyle="bold" />
 
     <!-- Password -->
     <EditText
         android:id="@+id/edtLoginPassword"
-        android:width="130pt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pass"
         android:layout_centerHorizontal="true"
-        android:ems="10"
+        android:width="130pt"
+        android:background="@drawable/input_effect"
         android:drawableStart="@drawable/ic_lock"
+        android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="13dp"
+        android:ems="10"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@drawable/input_effect"
-        android:drawableLeft="@drawable/ic_lock"
-        android:focusable="true"
-        android:focusableInTouchMode="true"/>
+        android:paddingBottom="10dp" />
 
     <!--Error banner for invalid login-->
     <TextView
@@ -111,8 +113,8 @@
         android:id="@+id/logo"
         android:layout_width="187dp"
         android:layout_height="89dp"
-        android:layout_marginTop="35pt"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="35pt"
         app:srcCompat="@drawable/whitelogo" />
 
     <!-- Login text -->
@@ -122,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="105pt"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="@font/crete_round"
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="10pt"
@@ -134,10 +136,11 @@
         android:layout_height="15pt"
         android:layout_below="@id/edtLoginPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20pt"
+        android:layout_marginTop="10pt"
         android:background="@drawable/subbutton"
+        android:fontFamily="@font/crete_round"
         android:gravity="center_vertical|center_horizontal"
-        android:text="LOGIn"
+        android:text="LOGIN"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textStyle="bold" />
 
@@ -147,8 +150,9 @@
         android:layout_height="15pt"
         android:layout_below="@id/btnLoginAccount"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10pt"
+        android:layout_marginTop="5pt"
         android:background="@drawable/subbutton"
+        android:fontFamily="@font/crete_round"
         android:gravity="center_vertical|center_horizontal"
         android:text="Register"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
