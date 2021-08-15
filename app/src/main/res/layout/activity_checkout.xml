@@ -20,9 +20,12 @@
         android:layout_width="150pt"
         android:layout_height="260pt"
         android:layout_below="@id/topp"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="-1dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginBottom="0dp"
         android:background="@drawable/whitecurvedbg" />
+
 
     <TextView
         android:id="@+id/deliveringto"
@@ -30,22 +33,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/topp"
         android:layout_marginLeft="20pt"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="130dp"
         android:fontFamily="@font/crete_round"
         android:text="Delivering to: "
         android:textColor="@color/black"
         android:textSize="7pt" />
 
     <TextView
-            android:id="@+id/adress"
-            android:layout_width="80pt"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20pt"
-            android:text="Jalan banana 3"
-            android:layout_below="@id/deliveringto"
-            android:fontFamily="@font/crete_round"
-            android:textColor="@color/black"
-            android:textSize="7pt" />
+        android:id="@+id/adress"
+        android:layout_width="130pt"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deliveringto"
+        android:layout_marginLeft="20pt"
+        android:fontFamily="@font/crete_round"
+        android:text="Jalan banana 3"
+        android:textColor="@color/black"
+        android:textSize="7pt" />
 
 
     <View
@@ -56,6 +59,64 @@
         android:layout_marginLeft="20pt"
         android:layout_marginTop="5pt"
         android:layout_marginRight="20pt"
+        android:layout_marginBottom="10pt"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/shippingdisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dividee"
+        android:layout_marginLeft="20pt"
+        android:fontFamily="@font/crete_round"
+        android:text="Shipping Choice: "
+        android:textColor="@color/black"
+        android:textSize="7pt" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shippingchoice"
+        android:layout_below="@id/shippingdisplay"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="115pt"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20pt"
+            android:id="@+id/displayshipname"
+            android:fontFamily="@font/crete_round"
+            android:text="Poslaju"
+            android:textColor="@color/black"
+            android:textSize="7pt" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RM"
+            android:fontFamily="@font/crete_round"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/displayshipprice"
+            android:text="5"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/dividee4"
+        android:layout_width="match_parent"
+        android:layout_height="1pt"
+        android:layout_below="@id/shippingchoice"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="5pt"
+        android:layout_marginRight="20pt"
         android:layout_marginBottom="5pt"
         android:background="@color/black" />
 
@@ -63,7 +124,7 @@
         android:id="@+id/Voucher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dividee"
+        android:layout_below="@id/dividee4"
         android:layout_marginLeft="20pt"
         android:layout_marginTop="5pt"
         android:fontFamily="@font/crete_round"
@@ -72,26 +133,61 @@
         android:textSize="7pt" />
 
     <TextView
-        android:id="@+id/VoucherUsed"
-        android:layout_width="80pt"
+        android:id="@+id/CouponUsed"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Voucher"
         android:layout_marginLeft="20pt"
-        android:layout_marginBottom="5pt"
         android:fontFamily="@font/crete_round"
-        android:text="no voucher used ..."
+        android:text="Coupon voucher used: "
         android:textColor="@color/black"
-        android:textSize="7pt" />
+        android:textSize="5pt" />
 
     <TextView
+        android:layout_width="68pt"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Voucher"
+        android:layout_marginLeft="3pt"
+        android:layout_toRightOf="@id/CouponUsed"
+        android:fontFamily="@font/crete_round"
+        android:text="Free Shipping"
+        android:id="@+id/CouponVoucherUsed"
+        android:textColor="@color/black"
+        android:textSize="5pt" />
+
+    <TextView
+        android:id="@+id/ShippingUsed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dividee"
-        android:layout_marginLeft="70pt"
+        android:layout_below="@id/CouponUsed"
+        android:layout_marginLeft="20pt"
+        android:fontFamily="@font/crete_round"
+        android:text="Shipping voucher used: "
+        android:textColor="@color/black"
+        android:textSize="5pt" />
+
+    <TextView
+        android:id="@+id/ShippingVoucherUsed"
+        android:layout_width="65pt"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CouponUsed"
+        android:layout_marginLeft="3pt"
+
+        android:layout_toRightOf="@id/ShippingUsed"
+        android:fontFamily="@font/crete_round"
+        android:text="Shipping Voucher"
+        android:textColor="@color/black"
+        android:textSize="5pt" />
+
+    <TextView
+        android:id="@+id/directvoucher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dividee4"
+        android:layout_marginLeft="79pt"
         android:layout_marginTop="4pt"
         android:layout_toRightOf="@id/Voucher"
         android:text=">"
-        android:id="@+id/directvoucher"
         android:textColor="@color/black"
         android:textSize="15pt" />
 
@@ -99,7 +195,7 @@
         android:id="@+id/dividee1"
         android:layout_width="match_parent"
         android:layout_height="1pt"
-        android:layout_below="@id/VoucherUsed"
+        android:layout_below="@id/ShippingUsed"
         android:layout_marginLeft="20pt"
         android:layout_marginTop="5pt"
         android:layout_marginRight="20pt"
@@ -131,19 +227,20 @@
             android:text=" items)"
             android:textColor="@color/black" />
         <View
-            android:layout_width="25pt"
+            android:layout_width="22pt"
             android:layout_height="0pt"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="#0A1039"
                 android:fontFamily="@font/crete_round"
                 android:text="RM"/>
             <TextView
                 android:layout_width="17pt"
+                android:id="@+id/merchantprice"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="#0A1039"
                 android:textAlignment="textEnd"
                 android:text="0.00"/>
 
@@ -166,7 +263,7 @@
             android:textColor="@color/black" />
 
         <View
-            android:layout_width="50.5pt"
+            android:layout_width="47.5pt"
             android:layout_height="0pt" />
 
         <TextView
@@ -174,14 +271,15 @@
             android:layout_height="wrap_content"
             android:text="RM"
             android:fontFamily="@font/crete_round"
-            android:textColor="@color/black" />
+            android:textColor="#0A1039" />
 
         <TextView
             android:layout_width="17pt"
             android:textAlignment="textEnd"
+            android:id="@+id/shippingprice"
             android:layout_height="wrap_content"
             android:text="0.00"
-            android:textColor="@color/black" />
+            android:textColor="#0A1039" />
 
     </LinearLayout>
 
@@ -202,21 +300,22 @@
             android:layout_marginLeft="20pt" />
 
         <View
-            android:layout_width="66.5pt"
+            android:layout_width="61pt"
             android:layout_height="0pt"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#BA002C"
             android:fontFamily="@font/crete_round"
             android:textSize="4.5pt"
-            android:text="RM"/>
+            android:text="- RM"/>
         <TextView
             android:layout_width="13pt"
             android:textAlignment="textEnd"
+            android:id="@+id/shippingdiscount"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#BA002C"
             android:textSize="4.5pt"
             android:text="0.00"/>
 
@@ -232,7 +331,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Discount Promotion"
+            android:text="Coupon Discount"
             android:textColor="@color/black"
             android:textSize="4.5pt"
             android:fontFamily="@font/crete_round"
@@ -245,15 +344,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#BA002C"
             android:textSize="4.5pt"
             android:fontFamily="@font/crete_round"
-            android:text="RM"/>
+            android:text="- RM"/>
         <TextView
             android:layout_width="13pt"
             android:textAlignment="textEnd"
+            android:id="@+id/discount"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#BA002C"
             android:textSize="4.5pt"
             android:text="0.00"/>
 
@@ -270,26 +370,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total Amount"
+            android:textSize="8pt"
             android:textColor="@color/black"
             android:fontFamily="@font/crete_round"
             android:layout_marginLeft="20pt" />
 
         <View
-            android:layout_width="73pt"
+            android:layout_width="55.8pt"
             android:layout_height="0pt"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#0A1039"
             android:fontFamily="@font/crete_round"
+            android:textSize="8pt"
             android:text="RM"/>
         <TextView
             android:layout_width="17pt"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#0A1039"
+            android:id="@+id/finaltotal"
             android:textAlignment="textEnd"
-            android:text="0.00"/>
+            android:text="0.00"
+            android:textSize="8pt"/>
 
     </LinearLayout>
 
@@ -318,9 +422,9 @@
         android:id="@+id/backprofile"
         android:layout_width="20pt"
         android:layout_height="15pt"
-        android:background="@drawable/backarrow"
+        android:layout_marginLeft="5pt"
         android:layout_marginTop="5pt"
-        android:layout_marginLeft="5pt"/>
+        android:background="@drawable/backarrow" />
 
 
 

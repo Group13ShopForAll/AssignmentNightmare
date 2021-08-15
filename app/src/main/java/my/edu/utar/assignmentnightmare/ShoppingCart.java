@@ -10,9 +10,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -59,6 +61,8 @@ public class ShoppingCart extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("cart"),
                                 CartProduct.class).build();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ShoppingCart.this);
+        SharedPreferences.Editor editor = prefs.edit();
         DatabaseReference reff;
         String productKey;
         Intent intentFromProductAdapter = getIntent();
@@ -67,6 +71,8 @@ public class ShoppingCart extends AppCompatActivity {
         int totalquan;
         arrow = (TextView) findViewById(R.id.arrow);
         TextView fee = (TextView) findViewById(R.id.fee);
+        Intent intent = new Intent(ShoppingCart.this, Checkout.class);
+
         String shipname = getIntent().getStringExtra("keyname");
         Double shipprice = getIntent().getDoubleExtra("keyprice",0.00);
         //Calculate subtotal
@@ -88,6 +94,7 @@ public class ShoppingCart extends AppCompatActivity {
                         });
                         fee.setText(shipprice.toString());
                         Double total = count + shipprice;
+                        editor.putString("merchanttotal", String.valueOf(count));
                         totalAmount.setText(String.format("%.2f", total));
 
                 }
@@ -102,7 +109,6 @@ public class ShoppingCart extends AppCompatActivity {
         rcvShopCart.setAdapter(cartAdapter);
 
         TextView btnCheckout = (TextView) findViewById(R.id.btnCheckout);
-        Intent intent = new Intent(ShoppingCart.this, Checkout.class);
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,9 +116,9 @@ public class ShoppingCart extends AppCompatActivity {
                     Toast.makeText(ShoppingCart.this, "Please select shipping method", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    intent.putExtra("total", Double.valueOf(totalAmount.getText().toString()));
-                    intent.putExtra("shipname", shipname);
-                    intent.putExtra("shipprice", shipprice);
+                    editor.putString("shipname", shipname);
+                    editor.putString("shipprice", shipprice.toString());
+                    editor.commit();
                     startActivity(intent);
                 }
             }

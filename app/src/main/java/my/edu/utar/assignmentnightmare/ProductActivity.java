@@ -3,12 +3,16 @@ package my.edu.utar.assignmentnightmare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,18 +35,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProductActivity extends AppCompatActivity {
 
     private DatabaseReference productRef, sellerRef, reff;
-
     private ImageView ivItemSoldImage;
     private TextView tvItemSoldName, tvItemSoldPrice, tvItemSoldSeller, tvItemSoldDesc, tvItemSoldQuantity, btnBuyNow;
     private ImageButton imgBtnBackToHomepage;
     private CircleImageView civProfileImg;
-    private TextView tvProfileName;
     private Intent intentFromProductAdapter;
     private TextView inc, dec, tv;
     private Integer count;
     private String productKey;
     private String productName, productPrice, productStock, productDesc, sellerId, sellerUsername;
     private Uri productImgUri;
+    private TextView edtquan;
+    private AlertDialog alertDialog;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +81,6 @@ public class ProductActivity extends AppCompatActivity {
                 productDesc = snapshot.child("productDesc").getValue().toString();
                 sellerId = snapshot.child("sellerId").getValue().toString();
                 productImgUri = Uri.parse(snapshot.child("productImgUri").getValue().toString());
-
                 sellerRef = FirebaseDatabase.getInstance().getReference().child("users").child(sellerId);
                 sellerRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -106,6 +110,7 @@ public class ProductActivity extends AppCompatActivity {
                 inc = findViewById(R.id.inc);
                 dec = findViewById(R.id.dec);
                 tv = findViewById(R.id.edtquan);
+
                 count = 1;
                 inc.setOnClickListener(new View.OnClickListener(){
                     @Override
@@ -127,6 +132,32 @@ public class ProductActivity extends AppCompatActivity {
                     }
                 });
 
+                edtquan = (TextView) findViewById(R.id.edtquan);
+                alertDialog = new AlertDialog.Builder(ProductActivity.this).create();
+                editText = new EditText(ProductActivity.this);
+
+                alertDialog.setTitle("Edit Quantity");
+                alertDialog.setView(editText);
+
+                edtquan.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        editText.setText(edtquan.getText().toString());
+
+
+                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Save", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                edtquan.setText(editText.getText().toString());
+                                count = Integer.parseInt(editText.getText().toString());
+                                alertDialog.dismiss();
+                            }
+                        });
+                        alertDialog.show();
+
+                    }
+                });
+
 
             }
 
@@ -141,7 +172,6 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                sendToHomepage();
             }
         });
 
@@ -166,14 +196,9 @@ public class ProductActivity extends AppCompatActivity {
                         reff.child(productKey).updateChildren(productMap);
 
                         finish();
-                        sendToHomepage();
                     }
                 }
             });
 
-    }
-
-    private void sendToHomepage() {
-        startActivity(new Intent(ProductActivity.this, Homepagee.class));
     }
 }

@@ -35,9 +35,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvShopCart"
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
         android:layout_height="200pt"
-        android:layout_below="@id/ShoppingCart" />
+        android:layout_below="@id/ShoppingCart"
+        android:layout_marginLeft="10dp" />
 
     <TextView
         android:id="@+id/shipp"

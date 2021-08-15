@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Voucher"/>
+    android:background="@drawable/bgstar"
+    tools:context=".Voucher">
+
+    <TextView
+        android:id="@+id/couponvouchers"
+        android:fontFamily="@font/crete_round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backvoucher"
+        android:layout_marginTop="8pt"
+        android:text="Coupon Vouchers"
+        android:textColor="@color/white"
+        android:textSize="13pt" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemsrcv"
+        android:layout_width="409dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/couponvouchers"
+        android:background="@drawable/whitecurvedbg"
+        android:padding="10pt"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="6pt"
+        android:layout_below="@id/itemsrcv"
+        android:id="@+id/space"/>
+
+
+    <TextView
+        android:id="@+id/shippingvouchers"
+        android:fontFamily="@font/crete_round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space"
+        android:text="Shipping Vouchers"
+        android:textColor="@color/white"
+        android:textSize="13pt" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemsrcv2"
+        android:layout_width="409dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/shippingvouchers"
+        android:background="@drawable/whitecurvedbg"
+        android:padding="10pt"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <ImageButton
+        android:id="@+id/backvoucher"
+        android:layout_width="20pt"
+        android:layout_height="15pt"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:background="@drawable/backarrow" />
+
+
+</RelativeLayout>

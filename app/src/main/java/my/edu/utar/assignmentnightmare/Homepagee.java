@@ -62,7 +62,7 @@ public class Homepagee extends AppCompatActivity {
         productAdapter = new ProductAdapter(options);
         rvSoldProduct.setAdapter(productAdapter);
 
-        // Done by Felix
+        // Image slider & Bottom Navigation(Felix)
         imageSlider = findViewById(R.id.carousel);
 
         ArrayList<SlideModel> images = new ArrayList<>();
@@ -76,8 +76,6 @@ public class Homepagee extends AppCompatActivity {
                 Toast.makeText(Homepagee.this,"Redirecting to ..." + i , Toast.LENGTH_SHORT).show();
             }
         });
-
-
 
         NestedScrollView scrolls = (NestedScrollView) findViewById(R.id.scroll);
         BottomNavigationView bottomNavigationView = findViewById(R.id.botnav);

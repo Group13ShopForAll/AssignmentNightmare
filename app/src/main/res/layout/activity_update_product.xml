@@ -145,13 +145,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
+
                 <EditText
                     android:id="@+id/edtUpdateProductDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="This is description"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:layout_margin="10dp"/>
+                    android:textAppearance="?android:textAppearanceMedium" />
             </RelativeLayout>
         </LinearLayout>
 

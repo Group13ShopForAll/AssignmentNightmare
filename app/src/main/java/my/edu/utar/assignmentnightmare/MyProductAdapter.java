@@ -51,7 +51,7 @@ public class MyProductAdapter extends FirebaseRecyclerAdapter<Product, MyProduct
     protected void onBindViewHolder(@NonNull MyProductAdapter.myViewHolder holder, int position, @NonNull Product model) {
         // display retrieve data at the respective field
         holder.tvMyProductName.setText(model.getProductName());
-        holder.tvMyProductPrice.setText(String.valueOf(model.getProductPrice()));
+        holder.tvMyProductPrice.setText(String.format("%.2f", model.getProductPrice()));
         holder.tvMyProductStock.setText(String.valueOf(model.getProductStock()));
         Picasso.get().load(model.getProductImgUri()).into(holder.civMyProductImg);
 

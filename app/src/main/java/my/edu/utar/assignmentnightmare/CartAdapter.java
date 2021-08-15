@@ -45,6 +45,13 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
         holder.scQuantity.setText(String.valueOf(model.getProductQuantity()));
         Picasso.get().load(model.getProductImgUri()).into(holder.scImage);
 
+        holder.scItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProductDetail(v,position);
+            }
+        });
+
     }
 
 
@@ -53,6 +60,13 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
     public CartAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.scitems,parent, false);
         return new myViewHolder(view);
+    }
+
+    private void openProductDetail(View v, int position) {
+        String productKey = getRef(position).getKey();
+        Intent intent = new Intent(v.getContext(), ProductActivity.class);
+        intent.putExtra("productKey",productKey);
+        v.getContext().startActivity(intent);
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
@@ -65,7 +79,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            scItem = (CardView) itemView.findViewById(R.id.cvProductSold);
+            scItem = (CardView) itemView.findViewById(R.id.scitem);
             scImage = (ImageView) itemView.findViewById(R.id.scimage);
             scName = (TextView) itemView.findViewById(R.id.scname);
             scSoldPrice = (TextView) itemView.findViewById(R.id.scSoldPrice);
