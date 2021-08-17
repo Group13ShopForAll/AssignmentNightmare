@@ -189,6 +189,8 @@ public class ProductActivity extends AppCompatActivity {
                         productMap.put("productStock", Integer.parseInt(productStock));
                         productMap.put("productImgUri", productImgUri.toString());
                         productMap.put("productQuantity", count);
+                        productMap.put("sellerid", sellerId);
+                        productMap.put("sellername", sellerUsername);
                         Double totalsingle = Double.valueOf(count) * Double.valueOf(productPrice);
                         productMap.put("productPrice", Double.valueOf(totalsingle));
 

@@ -6,14 +6,19 @@ public class OrderModel {
 
     String productName;
     Double productPrice;
-    String buyerName;
-    String buyerPhoneNumber;
-    String buyerAddress;
-    String sellerName;
-    Date purchaseDate;
+    String productImgUri;
+    String sellername;
+    int productQuantity;
 
-    OrderModel() {
+    public OrderModel() {
+    }
 
+    public OrderModel(String productName, Double productPrice, String productImgUri, String sellername, int productQuantity) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImgUri = productImgUri;
+        this.sellername = sellername;
+        this.productQuantity = productQuantity;
     }
 
     public String getProductName() {
@@ -32,58 +37,28 @@ public class OrderModel {
         this.productPrice = productPrice;
     }
 
-    public String getBuyerName() {
-        return buyerName;
+    public String getProductImgUri() {
+        return productImgUri;
     }
 
-    public void setBuyerName(String buyerName) {
-        this.buyerName = buyerName;
+    public void setProductImgUri(String productImgUri) {
+        this.productImgUri = productImgUri;
     }
 
-    public String getBuyerPhoneNumber() {
-        return buyerPhoneNumber;
+    public String getsellername() {
+        return sellername;
     }
 
-    public void setBuyerPhoneNumber(String buyerPhoneNumber) {
-        this.buyerPhoneNumber = buyerPhoneNumber;
+    public void setsellername(String sellerName) {
+        this.sellername = sellerName;
     }
 
-    public String getBuyerAddress() {
-        return buyerAddress;
+    public int getProductQuantity() {
+        return productQuantity;
     }
 
-    public void setBuyerAddress(String buyerAddress) {
-        this.buyerAddress = buyerAddress;
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
     }
-
-    public String getSellerName() {
-        return sellerName;
-    }
-
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
-    }
-
-    public Date getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    public OrderModel(String productName, Double productPrice, String buyerName, String buyerPhoneNumber, String buyerAddress, String sellerName, Date purchaseDate) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.buyerName = buyerName;
-        this.buyerPhoneNumber = buyerPhoneNumber;
-        this.buyerAddress = buyerAddress;
-        this.sellerName = sellerName;
-        this.purchaseDate = purchaseDate;
-    }
-
-
-
-
 }
 

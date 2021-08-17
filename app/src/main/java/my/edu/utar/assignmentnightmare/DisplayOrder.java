@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DisplayOrder extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DisplayOrderAdapter displayOrderAdapter;
+    private FirebaseAuth mAuth;
+    private String currentUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +25,14 @@ public class DisplayOrder extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mAuth = FirebaseAuth.getInstance();
+        currentUserId = mAuth.getUid();
+
         FirebaseRecyclerOptions<OrderModel> options =
                 new FirebaseRecyclerOptions.Builder<OrderModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child(""), OrderModel.class) //child waiting video 28:05
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("order").child("order1").orderByChild("sellername"), OrderModel.class)
                         .build();
+
 
         displayOrderAdapter = new DisplayOrderAdapter(options);
         recyclerView.setAdapter(displayOrderAdapter);

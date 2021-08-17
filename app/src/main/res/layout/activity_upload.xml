@@ -37,9 +37,9 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:padding="10pt"
+        android:scaleType="centerInside"
         android:layout_marginTop="30pt"
-        android:src="@drawable/ic_baseline_add_photo_alternate_24" />
+        android:src="@drawable/def" />
 
 
     <!--Add Item Name-->

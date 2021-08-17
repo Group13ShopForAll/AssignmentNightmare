@@ -44,8 +44,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rcvShopCart"
-        android:text="   Shipping : RM  "
+        android:fontFamily="@font/crete_round"
         android:layout_marginBottom="5pt"
+        android:text="   Shipping : RM  "
         android:textColor="@color/white"
         android:textSize="8pt" />
 
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rcvShopCart"
         android:layout_marginBottom="5pt"
-        android:layout_toRightOf="@id/total"
+        android:layout_toRightOf="@id/shipp"
         android:text="0"
         android:textColor="#ed6476"
         android:textSize="12pt" />
@@ -66,41 +67,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rcvShopCart"
+        android:fontFamily="@font/crete_round"
         android:layout_marginLeft="-4dp"
-        android:layout_marginTop="-7dp"
         android:layout_toRightOf="@id/fee"
-        android:text="  >"
-        android:textColor="@color/white"
-        android:textSize="15pt" />
-
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/shipp"
-        android:text="   Sub total : RM  "
+        android:text="  >  Select Shipping method"
+        android:textStyle="italic"
         android:textColor="@color/white"
         android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/shipp"
-        android:layout_toRightOf="@id/total"
-        android:text="50"
-        android:textColor="#ed6476"
-        android:textSize="12pt" />
+
 
     <TextView
         android:id="@+id/btnCheckout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/amount"
+        android:layout_below="@id/fee"
         android:layout_centerHorizontal="true"
         android:background="@drawable/subbutton"
         android:padding="10dp"
         android:text="Checkout"
+        android:fontFamily="@font/crete_round"
         android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold" />

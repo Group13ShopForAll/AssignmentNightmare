@@ -33,14 +33,21 @@ import java.util.List;
 
 public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapter.myViewHolder> {
 
-    public CartAdapter(@NonNull FirebaseRecyclerOptions<CartProduct> options) {
+    private String currentUserId;
+    DatabaseReference reff;
+
+    public CartAdapter(String currentUserId, @NonNull FirebaseRecyclerOptions<CartProduct> options) {
         super(options);
+        this.currentUserId = currentUserId;
+        reff = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("cart");
     }
+
+
 
     @Override
     protected void onBindViewHolder(@NonNull CartAdapter.myViewHolder holder, int position, @NonNull CartProduct model) {
         holder.scName.setText(model.getProductName());
-        holder.scSoldPrice.setText(String.valueOf(String.format("%.2f", model.getProductPrice())));
+        holder.scSoldPrice.setText(String.format("%.2f", model.getProductPrice()));
         holder.scStock.setText(String.valueOf(model.getProductStock()));
         holder.scQuantity.setText(String.valueOf(model.getProductQuantity()));
         Picasso.get().load(model.getProductImgUri()).into(holder.scImage);
@@ -51,6 +58,14 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
                 openProductDetail(v,position);
             }
         });
+
+        holder.deleteitembutt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reff.child(getRef(position).getKey()).removeValue();
+            }
+        });
+
 
     }
 
@@ -73,7 +88,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
 
         private CardView scItem;
         private ImageView scImage;
-        private TextView scName, scSoldPrice, scQuantity, scStock;
+        private TextView scName, scSoldPrice, scQuantity, scStock, deleteitembutt;
 
 
 
@@ -85,7 +100,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
             scSoldPrice = (TextView) itemView.findViewById(R.id.scSoldPrice);
             scStock = (TextView) itemView.findViewById(R.id.scStock);
             scQuantity = (TextView) itemView.findViewById(R.id.scQuantity);
-
+            deleteitembutt = (TextView) itemView.findViewById(R.id.deleteitembutt);
 
         }
     }

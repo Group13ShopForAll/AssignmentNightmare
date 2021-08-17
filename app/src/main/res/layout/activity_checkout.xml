@@ -408,15 +408,15 @@
         android:layout_marginRight="20pt"/>
 
     <Button
+        android:id="@+id/pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PAY"
-        android:id="@+id/pay"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/dividee2"
-        android:layout_marginTop="7pt"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20pt"
-        android:layout_marginRight="20pt"/>
+        android:layout_marginTop="7pt"
+        android:layout_marginRight="20pt"
+        android:text="PAY" />
 
     <ImageButton
         android:id="@+id/backprofile"

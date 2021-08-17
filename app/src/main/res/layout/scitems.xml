@@ -65,6 +65,23 @@
                     android:textColor="#BA002C"
                     android:textSize="21sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity: "
+                    android:textSize="15sp"
+                    android:layout_marginLeft="14pt"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/scQuantity"
+                    android:layout_width="12pt"
+                    android:textAlignment="textStart"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8pt"
+                    android:text="12"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
             </LinearLayout>
 
 
@@ -82,42 +99,43 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Quantity: "
-                    android:textSize="15sp"
+                    android:layout_width="13pt"
+                    android:layout_height="13pt"
+                    android:text="X"
+                    android:id="@+id/deleteitembutt"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:background="@drawable/circlebg"
+                    android:textSize="5pt"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4pt"
+                    android:layout_marginRight="3pt"
+                    android:layout_marginBottom="9pt"
                     android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/scQuantity"
-                    android:layout_width="20pt"
-                    android:textAlignment="textStart"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8pt"
-                    android:text="12"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/scStock"
-                    android:layout_width="15pt"
+                    android:layout_width="18pt"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     android:text="18"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="20pt"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:text=" left"
-                    android:paddingTop="5pt"
+                    android:paddingTop="2pt"
                     android:paddingRight="5pt"
                     android:textSize="15sp" />
 

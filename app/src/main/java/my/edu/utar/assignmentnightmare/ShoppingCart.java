@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -36,7 +37,6 @@ public class ShoppingCart extends AppCompatActivity {
     private CartAdapter cartAdapter;
 
     private FirebaseAuth mAuth;
-    private DatabaseReference SCReference;
     private String currentUserId;
     TextView arrow;
 
@@ -54,7 +54,6 @@ public class ShoppingCart extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getUid();
 
-        SCReference = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("cart");
 
         FirebaseRecyclerOptions<CartProduct> options =
                 new FirebaseRecyclerOptions.Builder<CartProduct>()
@@ -64,11 +63,7 @@ public class ShoppingCart extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ShoppingCart.this);
         SharedPreferences.Editor editor = prefs.edit();
         DatabaseReference reff;
-        String productKey;
-        Intent intentFromProductAdapter = getIntent();
-        productKey = intentFromProductAdapter.getStringExtra("productKey");
-        TextView totalAmount = (TextView) findViewById(R.id.amount);
-        int totalquan;
+
         arrow = (TextView) findViewById(R.id.arrow);
         TextView fee = (TextView) findViewById(R.id.fee);
         Intent intent = new Intent(ShoppingCart.this, Checkout.class);
@@ -95,7 +90,6 @@ public class ShoppingCart extends AppCompatActivity {
                         fee.setText(shipprice.toString());
                         Double total = count + shipprice;
                         editor.putString("merchanttotal", String.valueOf(count));
-                        totalAmount.setText(String.format("%.2f", total));
 
                 }
             }
@@ -105,7 +99,7 @@ public class ShoppingCart extends AppCompatActivity {
             }
         });
 
-        cartAdapter = new CartAdapter(options);
+        cartAdapter = new CartAdapter(currentUserId, options);
         rcvShopCart.setAdapter(cartAdapter);
 
         TextView btnCheckout = (TextView) findViewById(R.id.btnCheckout);

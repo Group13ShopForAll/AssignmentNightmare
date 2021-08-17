@@ -26,14 +26,22 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+
 public class Checkout extends AppCompatActivity {
 
     TextView adress;
     private DatabaseReference userProfileRef;
     private FirebaseAuth mAuth;
     private String currentUserId;
+    private String productKey, currentDatee, currentTimee, sub, substring;
+    private Intent intentFromProductAdapter;
+    int i = 0, j = 0;
     TextView directvoucher;
     TextView tvmerchantprice, tvshippingprice, tvshippingdiscount, tvdiscount, tvfinaltotal, tvshippingvoucherused, tvcouponvoucherused;
+    Button paybutt;
     ImageButton backbutt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +49,22 @@ public class Checkout extends AppCompatActivity {
         setContentView(R.layout.activity_checkout);
 
         backbutt = (ImageButton) findViewById(R.id.backprofile);
+        //paybutt = (Button) findViewById(R.id.pay);
 
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getUid();
         adress = (TextView) findViewById(R.id.adress);
         userProfileRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("user profile");
+        intentFromProductAdapter = getIntent();
+        productKey = intentFromProductAdapter.getStringExtra("productKey");
+
+        Calendar calForDate = Calendar.getInstance();
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-YYYY");
+        currentDatee = currentDate.format(calForDate.getTime());
+
+        Calendar calForTime = Calendar.getInstance();
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss");
+        currentTimee = currentTime.format(calForTime.getTime());
 
         //get value from SharedPreferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -109,6 +128,73 @@ public class Checkout extends AppCompatActivity {
         });
 
 
+
+        //paybutt.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+//
+//
+        //         DatabaseReference fromPath = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
+        //         DatabaseReference toPath = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("order");
+//
+//
+        //        j = 1;
+        //             fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+        //                 @Override
+        //                 public void onDataChange(DataSnapshot dataSnapshot) {
+        //                     sub = (toPath.child("order" + i).getKey());
+//
+        //                     toPath.child("order" + 1).addListenerForSingleValueEvent(new ValueEventListener() {
+        //                         @Override
+        //                         public void onDataChange(@NonNull DataSnapshot dataSnapshots) {
+        //                             if(dataSnapshots.exists()){
+        //                                 Toast.makeText(Checkout.this, "Exist", Toast.LENGTH_SHORT).show();
+        //                                 toPath.child("order" + 2).addListenerForSingleValueEvent(new ValueEventListener() {
+        //                                     @Override
+        //                                     public void onDataChange(@NonNull DataSnapshot dataSnapshotss) {
+        //                                         toPath.child("order" + (((dataSnapshots.getValue().toString()).substring(sub.length() - 1)) + 1)).setValue(dataSnapshot.getValue(), (firebaseError, firebase) -> {
+        //                                             if (firebaseError != null) {
+        //                                                 Toast.makeText(Checkout.this, "Failed", Toast.LENGTH_SHORT).show();
+        //                                             } else {
+        //                                                 startActivity(new Intent(Checkout.this, DisplayOrder.class));
+        //                                             }
+        //                                         });
+        //                                     }
+        //                                     @Override
+        //                                     public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+        //                                     }
+        //                                 });
+        //                             }else{
+        //                                 toPath.child("order" + 1).setValue(dataSnapshot.getValue(), (firebaseError, firebase) -> {
+        //                                     if (firebaseError != null) {
+        //                                         Toast.makeText(Checkout.this, "Failed", Toast.LENGTH_SHORT).show();
+        //                                     } else {
+        //                                         Toast.makeText(Checkout.this, dataSnapshots.getValue().toString(), Toast.LENGTH_SHORT).show();
+        //                                         startActivity(new Intent(Checkout.this, DisplayOrder.class));
+        //                                         finish();
+        //                                     }
+        //                                 });
+        //                             }
+//
+        //                         }
+        //                         @Override
+        //                         public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+        //                         }
+        //                     });
+//
+        //                 }
+        //                 @Override
+        //                 public void onCancelled(DatabaseError databaseError) {
+//
+        //                 }
+        //             });
+//
+        //    }
+        //});
+
+
         switch (voucherused){
             case "❌ Coupon":
                     coupondiscount = 0.00;
@@ -155,5 +241,7 @@ public class Checkout extends AppCompatActivity {
 
         amountTotal = amountTotal - coupondiscount - shipdiscount;
         tvfinaltotal.setText(amountTotal.toString());
+
+
     }
 }
