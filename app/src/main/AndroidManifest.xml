@@ -34,20 +34,8 @@
         <activity android:name=".OrderActivity" />
         <activity android:name=".ProductActivity" />
         <activity android:name=".UploadActivity" />
-        <activity android:name=".Profile">
-            <intent-filter>
-                <action android:name=".Profile" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Homepagee">
-            <intent-filter>
-                <action android:name=".Homepagee" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Profile"/>
+        <activity android:name=".Homepagee"/>
         <activity android:name=".LoginPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -56,14 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShoppingCart">
-            <intent-filter>
-                <action android:name=".ShoppingCart" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".ShoppingCart"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

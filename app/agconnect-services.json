@@ -10,21 +10,21 @@
 		"SG_back":"connect-dra.dbankcloud.cn"
 	},
 	"client":{
-		"cp_id":"2640060000022722758",
-		"product_id":"736430079245933597",
-		"client_id":"692266376865268608",
-		"client_secret":"E687F5FD22B156AFFFBBA98BFEE36EA1D266C560B7456CB46F30FA73E300DD36",
-		"project_id":"736430079245933597",
-		"app_id":"104622791",
-		"api_key":"CwEAAAAATkcN2gY8dZQWqJzKBLis7Jqn1UkvHJa18McJ6vVMJPZzpohcSMZtxhDJqZJCYe6XEUFrBBp6F2f4DiMWzhudCBQx61E=",
+		"cp_id":"2640060000022722935",
+		"product_id":"736430079245943892",
+		"client_id":"695575663217755072",
+		"client_secret":"672F53220217C0972230A3FE1B2E2A27706E5E9BB18EB3BE09448EDD982A8ACA",
+		"project_id":"736430079245943892",
+		"app_id":"104637521",
+		"api_key":"CwEAAAAAGYwePkqBVTr5psoQGPHTkq8X7WBUEokF00da9Snad2JfnK7H5+IYTOzIjXKiNQLJLFAMhfz2Z4oB1HC5VXzWRyoIcjY=",
 		"package_name":"my.edu.utar.assignmentnightmare"
 	},
 	"oauth_client":{
-		"client_id":"104622791",
+		"client_id":"104637521",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"104622791",
+		"app_id":"104637521",
 		"package_name":"my.edu.utar.assignmentnightmare"
 	},
 	"configuration_version":"3.0",
@@ -32,15 +32,15 @@
 		{
 			"package_name":"my.edu.utar.assignmentnightmare",
 			"client":{
-				"app_id":"104622791"
+				"app_id":"104637521"
 			},
 			"app_info":{
 				"package_name":"my.edu.utar.assignmentnightmare",
-				"app_id":"104622791"
+				"app_id":"104637521"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"104622791"
+				"client_id":"104637521"
 			}
 		}
 	]
