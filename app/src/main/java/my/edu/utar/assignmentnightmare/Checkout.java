@@ -39,6 +39,11 @@ public class Checkout extends AppCompatActivity {
     private String productKey, currentDatee, currentTimee, sub, substring;
     private Intent intentFromProductAdapter;
     int i = 0, j = 0;
+    private Double coupondiscount = 0.00;
+    private Double shipdiscount = 0.00;
+    private Double amountTotal = 0.00;
+
+
     TextView directvoucher;
     TextView tvmerchantprice, tvshippingprice, tvshippingdiscount, tvdiscount, tvfinaltotal, tvshippingvoucherused, tvcouponvoucherused;
     Button paybutt;
@@ -49,7 +54,7 @@ public class Checkout extends AppCompatActivity {
         setContentView(R.layout.activity_checkout);
 
         backbutt = (ImageButton) findViewById(R.id.backprofile);
-        //paybutt = (Button) findViewById(R.id.pay);
+        paybutt = (Button) findViewById(R.id.pay);
 
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getUid();
@@ -73,11 +78,6 @@ public class Checkout extends AppCompatActivity {
         String merchantprice = prefs.getString("merchanttotal", "no value");
         String shipname = prefs.getString("shipname", "no value");
         String shipprice = prefs.getString("shipprice", "0.00");
-
-
-        Double coupondiscount = 0.00;
-        Double shipdiscount = 0.00;
-        Double amountTotal = 0.00;
 
         tvmerchantprice = (TextView) findViewById(R.id.merchantprice);
         tvshippingprice = (TextView) findViewById(R.id.shippingprice);
@@ -127,7 +127,16 @@ public class Checkout extends AppCompatActivity {
             }
         });
 
+        paybutt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(Checkout.this, RazorpayPayment.class);
+                String sAmount = amountTotal.toString();
+                intent.putExtra("sAmount", sAmount);
+                startActivity(intent);
+            }
+        });
 
         //paybutt.setOnClickListener(new View.OnClickListener() {
         //    @Override

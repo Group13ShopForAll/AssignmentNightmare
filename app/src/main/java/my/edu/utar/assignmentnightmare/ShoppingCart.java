@@ -39,8 +39,7 @@ public class ShoppingCart extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String currentUserId;
     TextView arrow;
-
-
+    private TextView btnCheckout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +146,9 @@ public class ShoppingCart extends AppCompatActivity {
             }
             return false;
         });
+
+
+
 
 
 
