@@ -11,7 +11,7 @@
     <!--Item Image-->
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="160pt"
+        android:layout_width="match_parent"
         android:layout_height="635dp"
         android:layout_marginBottom="10pt"
         android:background="@drawable/bgbg"

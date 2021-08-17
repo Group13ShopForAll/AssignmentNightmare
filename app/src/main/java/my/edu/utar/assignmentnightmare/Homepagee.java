@@ -101,6 +101,7 @@ public class Homepagee extends AppCompatActivity {
                     break;
                 case R.id.message:
                     item.setChecked(true);
+                    startActivity(new Intent(Homepagee.this, BannerActivity.class));
                     //overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                     //finish();
                     break;

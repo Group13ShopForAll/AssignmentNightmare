@@ -16,16 +16,29 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
+    /*signingConfigs {
         release {
             storeFile file("HMS.jks")
             storePassword "abc123"
             keyAlias "HMS"
             keyPassword "abc123"
         }
+    }*/
+
+    signingConfigs {
+        config {
+            storeFile file('C:\\Users\\User\\Desktop\\practical\\hms certificate\\certificate.jks')
+            storePassword '123123'
+            keyPassword '123123'
+            keyAlias 'key0'
+        }
     }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -62,7 +75,9 @@ dependencies {
     implementation 'com.huawei.hms:ads-lite:13.4.39.302'
     implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
     implementation 'com.huawei.hms:ads-installreferrer:3.4.39.302'
+    implementation 'com.huawei.hms:push:5.0.4.302'
 }
 
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
