@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -48,10 +49,13 @@ public class Checkout extends AppCompatActivity {
     TextView tvmerchantprice, tvshippingprice, tvshippingdiscount, tvdiscount, tvfinaltotal, tvshippingvoucherused, tvcouponvoucherused;
     Button paybutt;
     ImageButton backbutt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_checkout);
+
 
         backbutt = (ImageButton) findViewById(R.id.backprofile);
         paybutt = (Button) findViewById(R.id.pay);
@@ -185,4 +189,5 @@ public class Checkout extends AppCompatActivity {
 
 
     }
+
 }

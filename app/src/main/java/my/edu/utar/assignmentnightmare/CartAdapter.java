@@ -36,14 +36,18 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
 
     private String currentUserId;
     DatabaseReference reff;
+    private static CartAdapter instance;
 
     public CartAdapter(String currentUserId, @NonNull FirebaseRecyclerOptions<CartProduct> options) {
         super(options);
         this.currentUserId = currentUserId;
         reff = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId).child("cart");
+        instance = this;
     }
 
-
+    public static CartAdapter getInstance() {
+        return instance;
+    }
 
     @Override
     protected void onBindViewHolder(@NonNull CartAdapter.myViewHolder holder, int position, @NonNull CartProduct model) {
@@ -52,7 +56,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
         holder.scStock.setText(String.valueOf(model.getProductStock()));
         holder.scQuantity.setText(String.valueOf(model.getProductQuantity()));
         Picasso.get().load(model.getProductImgUri()).into(holder.scImage);
-
+        instance = this;
         holder.scItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +70,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
                 reff.child(getRef(position).getKey()).removeValue();
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, getSnapshots().size());
+                ShoppingCart.getInstance().refreshpage();
             }
         });
 
@@ -85,6 +90,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
         Intent intent = new Intent(v.getContext(), ProductActivity.class);
         intent.putExtra("productKey",productKey);
         v.getContext().startActivity(intent);
+
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{

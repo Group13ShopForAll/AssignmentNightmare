@@ -40,12 +40,13 @@ public class ShoppingCart extends AppCompatActivity {
     private String currentUserId;
     TextView arrow;
     private TextView btnCheckout, totalamount;
-
+    private static ShoppingCart instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_shopping_cart);
+        instance = this;
 
         rcvShopCart = (RecyclerView) findViewById(R.id.rcvShopCart);
         rcvShopCart.setLayoutManager(new LinearLayoutManager(this));
@@ -148,6 +149,16 @@ public class ShoppingCart extends AppCompatActivity {
 
 
 
+    }
+
+    public void refreshpage(){
+        Intent intent = new Intent(ShoppingCart.this, ShoppingCart.class);
+        overridePendingTransition(0, 0);
+        startActivity(intent);
+    }
+
+    public static ShoppingCart getInstance() {
+        return instance;
     }
 
     @Override
