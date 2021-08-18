@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,11 +31,15 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.FirebaseDatabase;
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.ads.AdParam;
 import com.huawei.hms.ads.BannerAdSize;
 import com.huawei.hms.ads.HwAds;
 import com.huawei.hms.ads.banner.BannerView;
 import com.huawei.hms.ads.identifier.AdvertisingIdClient;
+import com.huawei.hms.common.ApiException;
+import com.huawei.hms.push.HmsMessageService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +51,7 @@ public class Homepagee extends AppCompatActivity {
 
     //private RecyclerView rcvItem;
     //private ItemAdapter mItemAdapter;
+
 
     private RecyclerView rvSoldProduct;
     private ProductAdapter productAdapter;
@@ -65,7 +71,7 @@ public class Homepagee extends AppCompatActivity {
         // set up recycler view options at home page for sold product
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("homepage").child("products"),Product.class).build();
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("homepage").child("products"), Product.class).build();
         // apply the options at the product adapter and allocate the adapter to the recycler view at homepage
         productAdapter = new ProductAdapter(options);
         rvSoldProduct.setAdapter(productAdapter);
@@ -74,14 +80,14 @@ public class Homepagee extends AppCompatActivity {
         imageSlider = findViewById(R.id.carousel);
 
         ArrayList<SlideModel> images = new ArrayList<>();
-        images.add(new SlideModel(R.drawable.banner1,ScaleTypes.CENTER_CROP));
-        images.add(new SlideModel(R.drawable.banner2,ScaleTypes.CENTER_CROP));
+        images.add(new SlideModel(R.drawable.banner1, ScaleTypes.CENTER_CROP));
+        images.add(new SlideModel(R.drawable.banner2, ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(images, ScaleTypes.CENTER_CROP);
         imageSlider.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemSelected(int i) {
-                Toast.makeText(Homepagee.this,"Redirecting to ..." + i , Toast.LENGTH_SHORT).show();
+                Toast.makeText(Homepagee.this, "Redirecting to ..." + i, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -89,14 +95,14 @@ public class Homepagee extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.botnav);
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch(item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.home:
                     item.setChecked(true);
                     scrolls.smoothScrollTo(0, 0);
                     break;
                 case R.id.category:
                     item.setChecked(true);
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     break;
                 case R.id.message:
@@ -108,13 +114,13 @@ public class Homepagee extends AppCompatActivity {
                 case R.id.cart:
                     item.setChecked(true);
                     startActivity(new Intent(Homepagee.this, ShoppingCart.class));
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     break;
                 case R.id.profile:
                     item.setChecked(true);
                     startActivity(new Intent(Homepagee.this, Profile.class));
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     break;
             }
@@ -145,9 +151,9 @@ public class Homepagee extends AppCompatActivity {
     private void txtSearch(String str) {
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
-                .setQuery(FirebaseDatabase.getInstance().getReference()
-                        .child("homepage").child("products").orderByChild("productName")
-                        .startAt(str).endAt(str+"~"),Product.class )
+                        .setQuery(FirebaseDatabase.getInstance().getReference()
+                                .child("homepage").child("products").orderByChild("productName")
+                                .startAt(str).endAt(str + "~"), Product.class)
                         .build();
         productAdapter = new ProductAdapter(options);
         productAdapter.startListening();
@@ -158,17 +164,17 @@ public class Homepagee extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             View v = getCurrentFocus();
-            if ( v instanceof EditText) {
+            if (v instanceof EditText) {
                 Rect outRect = new Rect();
                 v.getGlobalVisibleRect(outRect);
-                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
                     v.clearFocus();
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 }
             }
         }
-        return super.dispatchTouchEvent( event );
+        return super.dispatchTouchEvent(event);
     }
 
     @Override
@@ -182,4 +188,6 @@ public class Homepagee extends AppCompatActivity {
         super.onStop();
         productAdapter.stopListening();
     }
+
+
 }

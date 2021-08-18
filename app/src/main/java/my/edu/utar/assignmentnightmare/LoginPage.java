@@ -7,8 +7,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -20,6 +22,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hms.aaid.HmsInstanceId;
+import com.huawei.hms.common.ApiException;
+
+import org.w3c.dom.Text;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -31,6 +38,10 @@ public class LoginPage extends AppCompatActivity {
     private String loginAccount, loginPassword;
 
     private FirebaseAuth mAuth;
+
+    private static final String TAG = "LoginPage";
+    private TextView mTokentv;
+    private Button mGetTokenBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +55,17 @@ public class LoginPage extends AppCompatActivity {
         tvErrorLoginBanner = (TextView) findViewById(R.id.tvErrorLoginBanner);
         pbLoginAcc = (ProgressBar) findViewById(R.id.pbLoginAcc);
 
-        tvForgetPassword = (TextView) findViewById(R.id.tvForgetPassword);
+        mTokentv = (TextView) findViewById(R.id.push_token_tv);
+        mGetTokenBtn = (Button) findViewById(R.id.get_push_token_btn);
+
+        mGetTokenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getToken();
+            }
+        });
+
+        //tvForgetPassword = (TextView) findViewById(R.id.tvForgetPassword);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -64,6 +85,15 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showToken(final String token) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mTokentv.setText(token);
+            }
+        });
     }
 
     private void validateLoginInfo() {
@@ -106,4 +136,34 @@ public class LoginPage extends AppCompatActivity {
     private void sendToRegisterAccPage() {
         startActivity(new Intent(LoginPage.this, RegisterAccountPage.class));
     }
+
+    private void getToken() {
+        // Create a thread.
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    // Obtain the app ID from the agconnect-service.json file.
+                    String appId = AGConnectServicesConfig.fromContext(LoginPage.this).getString("client/app_id");
+                    // Set tokenScope to HCM.
+                    String tokenScope = "HCM";
+                    String token = HmsInstanceId.getInstance(LoginPage.this).getToken(appId, tokenScope);
+                    Log.i(TAG, "get token: " + token);
+
+                    // Check whether the token is empty.
+                    if (!TextUtils.isEmpty(token)) {
+                        showToken(token);
+                        sendRegTokenToServer(token);
+                    }
+                } catch (ApiException e) {
+                    Log.e(TAG, "get token failed, " + e);
+                }
+            }
+        }.start();
+    }
+
+    private void sendRegTokenToServer(String token) {
+        Log.i(TAG, "sending token to server. token:" + token);
+    }
+
 }

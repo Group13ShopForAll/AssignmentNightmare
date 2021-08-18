@@ -75,7 +75,8 @@ dependencies {
     implementation 'com.huawei.hms:ads-lite:13.4.39.302'
     implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
     implementation 'com.huawei.hms:ads-installreferrer:3.4.39.302'
-    implementation 'com.huawei.hms:push:5.0.4.302'
+    implementation 'com.huawei.hms:push:5.1.1.301'
+    //implementation 'com.huawei.hms:push:4.0.0.300'
 }
 
 apply plugin: 'com.google.gms.google-services'
