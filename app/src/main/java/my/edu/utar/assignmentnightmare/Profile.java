@@ -51,16 +51,6 @@ public class Profile extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                     finish();
                     break;
-                case R.id.category:
-                    item.setChecked(true);
-                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-                    finish();
-                    break;
-                case R.id.message:
-                    item.setChecked(true);
-                    //overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-                    //finish();
-                    break;
                 case R.id.cart:
                     item.setChecked(true);
                     startActivity(new Intent(Profile.this, ShoppingCart.class));
@@ -73,6 +63,16 @@ public class Profile extends AppCompatActivity {
             }
             return false;
         });
+
+        ImageView ship = (ImageView) findViewById(R.id.ship);
+        ship.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this, orderlist.class));
+            }
+        });
+
+
 
         //Done by Jiun Lin
         btnUploadProduct = (ImageView) findViewById(R.id.buttonUploadProduct);

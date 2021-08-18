@@ -39,7 +39,7 @@ public class ShoppingCart extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String currentUserId;
     TextView arrow;
-    private TextView btnCheckout;
+    private TextView btnCheckout, totalamount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +88,8 @@ public class ShoppingCart extends AppCompatActivity {
                         });
                         fee.setText(shipprice.toString());
                         Double total = count + shipprice;
+                        totalamount = (TextView) findViewById(R.id.tltl);
+                        totalamount.setText(total.toString());
                         editor.putString("merchanttotal", String.valueOf(count));
 
                 }
@@ -127,12 +129,6 @@ public class ShoppingCart extends AppCompatActivity {
                     startActivity(new Intent(ShoppingCart.this, Homepagee.class));
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                     finish();
-                    break;
-                case R.id.category:
-                    item.setChecked(true);
-                    break;
-                case R.id.message:
-                    item.setChecked(true);
                     break;
                 case R.id.cart:
                     item.setChecked(true);

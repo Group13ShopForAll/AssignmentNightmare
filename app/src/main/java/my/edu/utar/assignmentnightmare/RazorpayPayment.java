@@ -9,16 +9,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class RazorpayPayment extends AppCompatActivity implements PaymentResultListener {
     //Initialize variable
     Button btnPay;
     Intent intentFromCheckOut;
+    private String currentDatee, currentTimee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,5 +97,37 @@ public class RazorpayPayment extends AppCompatActivity implements PaymentResultL
     public void onPaymentError(int i, String s) {
         //Display toast
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+
+        Calendar calForDate = Calendar.getInstance();
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-YYYY");
+        currentDatee = currentDate.format(calForDate.getTime());
+
+        Calendar calForTime = Calendar.getInstance();
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss");
+        currentTimee = currentTime.format(calForTime.getTime());
+
+
+        DatabaseReference fromPath = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
+        DatabaseReference toPath = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("order");
+
+                fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        toPath.child(currentDatee + currentTimee).setValue(dataSnapshot.getValue(), (firebaseError, firebase) -> {
+                            if (firebaseError != null) {
+                                Toast.makeText(RazorpayPayment.this, "Failed", Toast.LENGTH_SHORT).show();
+                            } else {
+                                finish();
+                            }
+                        });
+
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
     }
 }

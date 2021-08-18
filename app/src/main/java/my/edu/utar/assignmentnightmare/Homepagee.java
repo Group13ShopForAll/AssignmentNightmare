@@ -100,17 +100,6 @@ public class Homepagee extends AppCompatActivity {
                     item.setChecked(true);
                     scrolls.smoothScrollTo(0, 0);
                     break;
-                case R.id.category:
-                    item.setChecked(true);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    finish();
-                    break;
-                case R.id.message:
-                    item.setChecked(true);
-                    startActivity(new Intent(Homepagee.this, BannerActivity.class));
-                    //overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                    //finish();
-                    break;
                 case R.id.cart:
                     item.setChecked(true);
                     startActivity(new Intent(Homepagee.this, ShoppingCart.class));

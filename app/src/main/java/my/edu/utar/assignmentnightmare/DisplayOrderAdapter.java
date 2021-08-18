@@ -1,5 +1,6 @@
 package my.edu.utar.assignmentnightmare;
 //Done by Low Wei Han
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -36,6 +38,15 @@ public class DisplayOrderAdapter extends FirebaseRecyclerAdapter <OrderModel, Di
         holder.productQuantity.setText(String.valueOf(model.getProductQuantity()));
         Picasso.get().load(model.getProductImgUri()).into(holder.orderimage);
 
+        holder.scItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProductDetail(v,position);
+            }
+        });
+
+
+
     }
 
     @NonNull
@@ -45,13 +56,23 @@ public class DisplayOrderAdapter extends FirebaseRecyclerAdapter <OrderModel, Di
         return new myViewHolder(view);
     }
 
+    private void openProductDetail(View v, int position) {
+        String productKey = getRef(position).getKey();
+        Intent intent = new Intent(v.getContext(), ProductActivity.class);
+        intent.putExtra("productKey",productKey);
+        v.getContext().startActivity(intent);
+    }
+
     class myViewHolder extends RecyclerView.ViewHolder {
 
         TextView productName, productPrice, sellername, productQuantity;
         private ImageView orderimage;
+        CardView scItem;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            scItem = (CardView) itemView.findViewById(R.id.scitem);
 
             productName = (TextView) itemView.findViewById(R.id.ordername);
             productPrice = (TextView) itemView.findViewById(R.id.orderprice);

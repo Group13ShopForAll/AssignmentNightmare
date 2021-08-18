@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/drawable/bigboxx.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/drawable/circlebg.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/drawable/forthbg.xml" value="0.10648148148148148" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/drawable/navicorner.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/drawable/whitecurvedbg.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_checkout.xml" value="0.536" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_coupon_card.xml" value="0.12760416666666666" />
@@ -16,11 +17,12 @@
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_my_product.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_order.xml" value="0.25" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_orderlist.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_payment.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_product.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_profile.xml" value="0.3439306358381503" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_shipping_fee.xml" value="0.152" />
-        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_shopping_cart.xml" value="0.4" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_shopping_cart.xml" value="0.2" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_update_product.xml" value="0.21467391304347827" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/activity_upload.xml" value="0.25" />
@@ -29,16 +31,14 @@
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/items.xml" value="0.1" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/myproducts.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/order_cardview.xml" value="0.264" />
-        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/orderitems.xml" value="0.264" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/orderitems.xml" value="0.536" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/orderlistitem.xml" value="0.264" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/popup.xml" value="0.27697841726618705" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/scitems.xml" value="0.5075987841945289" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/shipitems.xml" value="0.4" />
         <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/shopcitems.xml" value="0.12708333333333333" />
-        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/voucheritem.xml" value="0.1" />
-        <entry key="..\:/Users/User/Desktop/AssignmentNightmare/app/src/main/res/drawable/background.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/User/Desktop/AssignmentNightmare/app/src/main/res/layout/activity_checkout.xml" value="0.2" />
-        <entry key="..\:/Users/User/Desktop/AssignmentNightmare/app/src/main/res/layout/activity_razorpay_payment.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/User/Desktop/AssignmentNightmare/app/src/main/res/layout/activity_shopping_cart.xml" value="0.1" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/layout/voucheritem.xml" value="0.2" />
+        <entry key="..\:/Users/Felix/AndroidStudioProjects/AssignmentNightmare/app/src/main/res/menu/navigationbar.xml" value="0.2" />
       </map>
     </option>
   </component>

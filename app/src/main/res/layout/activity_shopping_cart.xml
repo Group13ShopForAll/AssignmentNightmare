@@ -35,7 +35,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvShopCart"
         android:layout_width="match_parent"
-        android:layout_height="200pt"
+        android:layout_height="190pt"
         android:layout_below="@id/ShoppingCart"
         android:layout_marginLeft="10dp" />
 
@@ -44,8 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rcvShopCart"
-        android:fontFamily="@font/crete_round"
         android:layout_marginBottom="5pt"
+        android:fontFamily="@font/crete_round"
         android:text="   Shipping : RM  "
         android:textColor="@color/white"
         android:textSize="8pt" />
@@ -74,6 +74,27 @@
         android:textStyle="italic"
         android:textColor="@color/white"
         android:textSize="8pt" />
+    <TextView
+        android:id="@+id/abc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shipp"
+        android:layout_marginBottom="5pt"
+        android:fontFamily="@font/crete_round"
+        android:text="   Total Amount : RM  "
+        android:textColor="@color/white"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/tltl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shipp"
+        android:layout_marginBottom="5pt"
+        android:layout_toRightOf="@id/abc"
+        android:text="0"
+        android:textColor="#ed6476"
+        android:textSize="12pt" />
 
 
 
@@ -81,7 +102,7 @@
         android:id="@+id/btnCheckout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fee"
+        android:layout_below="@id/tltl"
         android:layout_centerHorizontal="true"
         android:background="@drawable/subbutton"
         android:padding="10dp"

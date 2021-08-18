@@ -9,24 +9,30 @@
     tools:context=".DisplayOrder"
     android:background="@drawable/top_bg">
 
-    <ImageView
-        android:id="@+id/orderImage"
-        android:src="@drawable/order"
-        android:layout_width="60dp"
-        android:layout_toRightOf="@id/ordermodule"
-        android:layout_height="60dp"/>
-
     <TextView
+        android:id="@+id/ordertimemodule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Orders  "
-        android:textStyle="bold"
-        android:id="@+id/ordermodule"
-        android:textColor="@color/white"
-        android:fontFamily="@font/crete_round"
         android:layout_marginTop="5pt"
+        android:layout_toRightOf="@id/ordermodule"
+        android:fontFamily="@font/crete_round"
+        android:text="10:10:10 "
+        android:textColor="@color/white"
+        android:textSize="8pt"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/ordermodule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5pt"
-        android:textSize="13pt"/>
+        android:layout_marginTop="5pt"
+        android:layout_toRightOf="@id/backorder"
+        android:fontFamily="@font/crete_round"
+        android:text="My Orders  "
+        android:textColor="@color/white"
+        android:textSize="13pt"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -35,14 +41,43 @@
         android:layout_marginBottom="5pt"
         android:layout_below="@id/ordermodule"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="165pt"
-            android:layout_height="250pt"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_below="@id/toppage"
-            android:padding="8pt"
-            android:background="@drawable/whitecurvedbg"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="165pt"
+        android:layout_height="220pt"
+        android:layout_below="@id/toppage"
+        android:layout_centerInParent="true"
+        android:background="@drawable/whitecurvedbg"
+        android:padding="8pt" />
+
+    <TextView
+        android:id="@+id/tmep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv"
+        android:layout_marginBottom="5pt"
+        android:fontFamily="@font/crete_round"
+        android:text="   Total Amount : RM  "
+        android:textColor="@color/white"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/orderfee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv"
+        android:layout_marginBottom="5pt"
+        android:layout_toRightOf="@id/tmep"
+        android:text="0"
+        android:textColor="#ed6476"
+        android:textSize="12pt" />
+
+    <ImageButton
+        android:id="@+id/backorder"
+        android:layout_width="20pt"
+        android:layout_height="15pt"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:background="@drawable/backarrow" />
 
 </RelativeLayout>

@@ -34,6 +34,7 @@
         <activity android:name=".ProductActivity" />
         <activity android:name=".UploadActivity" />
         <activity android:name=".Profile" />
+        <activity android:name=".orderlist" />
         <activity android:name=".Homepagee" />
         <activity android:name=".LoginPage" />
         <activity android:name=".MainActivity">

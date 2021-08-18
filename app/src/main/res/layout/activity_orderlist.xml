@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Done by Low Wei Han-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayOrder"
+    android:background="@drawable/top_bg">
+
+    <ImageView
+        android:id="@+id/orderImage"
+        android:src="@drawable/order"
+        android:layout_width="60dp"
+        android:layout_toRightOf="@id/titleee"
+        android:layout_height="60dp"/>
+
+    <TextView
+        android:id="@+id/titleee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:layout_toRightOf="@id/backorderlist"
+        android:fontFamily="@font/crete_round"
+        android:text="My Orders  "
+        android:textColor="@color/white"
+        android:textSize="13pt"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/toppage"
+        android:layout_marginBottom="5pt"
+        android:layout_below="@id/titleee"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvv"
+        android:layout_width="165pt"
+        android:layout_height="250pt"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/toppage"
+        android:padding="8pt"
+        android:background="@drawable/whitecurvedbg"/>
+
+    <ImageButton
+        android:id="@+id/backorderlist"
+        android:layout_width="20pt"
+        android:layout_height="15pt"
+        android:layout_marginLeft="5pt"
+        android:layout_marginTop="5pt"
+        android:background="@drawable/backarrow" />
+
+</RelativeLayout>

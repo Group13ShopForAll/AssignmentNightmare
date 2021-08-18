@@ -11,6 +11,7 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -63,6 +64,8 @@ public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapte
             @Override
             public void onClick(View v) {
                 reff.child(getRef(position).getKey()).removeValue();
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, getSnapshots().size());
             }
         });
 
