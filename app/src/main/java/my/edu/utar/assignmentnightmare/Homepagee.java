@@ -2,7 +2,9 @@ package my.edu.utar.assignmentnightmare;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -80,10 +82,12 @@ public class Homepagee extends AppCompatActivity {
         imageSlider = findViewById(R.id.carousel);
 
         ArrayList<SlideModel> images = new ArrayList<>();
-        images.add(new SlideModel(R.drawable.banner1, ScaleTypes.CENTER_CROP));
-        images.add(new SlideModel(R.drawable.banner2, ScaleTypes.CENTER_CROP));
+        images.add(new SlideModel(R.drawable.banner3, ScaleTypes.CENTER_INSIDE));
+        images.add(new SlideModel(R.drawable.banner1, ScaleTypes.CENTER_INSIDE));
+        images.add(new SlideModel(R.drawable.banner2, ScaleTypes.CENTER_INSIDE));
 
-        imageSlider.setImageList(images, ScaleTypes.CENTER_CROP);
+
+        imageSlider.setImageList(images, ScaleTypes.CENTER_INSIDE);
         imageSlider.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemSelected(int i) {

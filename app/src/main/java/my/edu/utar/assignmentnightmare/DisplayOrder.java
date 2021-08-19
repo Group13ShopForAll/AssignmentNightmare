@@ -59,7 +59,7 @@ public class DisplayOrder extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     double price = Double.valueOf(snapshot.child("productPrice").getValue(Long.class));
                     count = count + price;
-                    feeorder.setText(String.valueOf(count));
+                    feeorder.setText(String.format("%.2f", count));
                 }
             }
             @Override

@@ -102,7 +102,7 @@ public class ProductActivity extends AppCompatActivity {
                 // assign all the variable to the respective field on product description page
                 Picasso.get().load(productImgUri).into(ivItemSoldImage);
                 tvItemSoldName.setText(productName);
-                tvItemSoldPrice.setText(productPrice);
+                tvItemSoldPrice.setText(String.format("%.2f", Double.valueOf(productPrice)));
                 tvItemSoldDesc.setText(productDesc);
                 tvItemSoldQuantity.setText(productStock);
                 tvItemSoldDesc.setMovementMethod(new ScrollingMovementMethod());

@@ -75,7 +75,7 @@
                     android:id="@+id/carousel"
                     android:layout_width="match_parent"
                     android:layout_height="196dp"
-                    android:background="@color/black"
+                    android:background="#151823"
                     app:iss_auto_cycle="true"
                     app:iss_delay="@integer/material_motion_duration_medium_2"
                     app:iss_error_image="@drawable/error"

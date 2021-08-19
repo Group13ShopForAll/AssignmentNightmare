@@ -39,7 +39,7 @@ public class ShoppingCart extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String currentUserId;
     TextView arrow;
-    private TextView btnCheckout, totalamount;
+    private TextView btnCheckout, totalamount, fee;
     private static ShoppingCart instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,8 @@ public class ShoppingCart extends AppCompatActivity {
         DatabaseReference reff;
 
         arrow = (TextView) findViewById(R.id.arrow);
-        TextView fee = (TextView) findViewById(R.id.fee);
+        fee = (TextView) findViewById(R.id.fee);
+        totalamount = (TextView) findViewById(R.id.tltl);
         Intent intent = new Intent(ShoppingCart.this, Checkout.class);
 
         String shipname = getIntent().getStringExtra("keyname");
@@ -87,10 +88,9 @@ public class ShoppingCart extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         });
-                        fee.setText(shipprice.toString());
+                        fee.setText(String.format("%.2f", shipprice));
                         Double total = count + shipprice;
-                        totalamount = (TextView) findViewById(R.id.tltl);
-                        totalamount.setText(total.toString());
+                        totalamount.setText(String.format("%.2f", total));
                         editor.putString("merchanttotal", String.valueOf(count));
 
                 }
@@ -153,8 +153,9 @@ public class ShoppingCart extends AppCompatActivity {
 
     public void refreshpage(){
         Intent intent = new Intent(ShoppingCart.this, ShoppingCart.class);
-        overridePendingTransition(0, 0);
         startActivity(intent);
+        overridePendingTransition(0, 0);
+        finish();
     }
 
     public static ShoppingCart getInstance() {

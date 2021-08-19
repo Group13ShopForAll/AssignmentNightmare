@@ -33,7 +33,7 @@ public class DisplayOrderAdapter extends FirebaseRecyclerAdapter <OrderModel, Di
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull OrderModel model) {
 
         holder.productName.setText(model.getProductName());
-        holder.productPrice.setText(model.getProductPrice().toString());
+        holder.productPrice.setText(String.format("%.2f", model.getProductPrice()));
         holder.sellername.setText(model.getsellername());
         holder.productQuantity.setText(String.valueOf(model.getProductQuantity()));
         Picasso.get().load(model.getProductImgUri()).into(holder.orderimage);
