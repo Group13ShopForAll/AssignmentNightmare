@@ -40,8 +40,6 @@ public class LoginPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private static final String TAG = "LoginPage";
-    private TextView mTokentv;
-    private Button mGetTokenBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +53,6 @@ public class LoginPage extends AppCompatActivity {
         tvErrorLoginBanner = (TextView) findViewById(R.id.tvErrorLoginBanner);
         pbLoginAcc = (ProgressBar) findViewById(R.id.pbLoginAcc);
 
-        mTokentv = (TextView) findViewById(R.id.push_token_tv);
-        mGetTokenBtn = (Button) findViewById(R.id.get_push_token_btn);
-
-        mGetTokenBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getToken();
-            }
-        });
-
-        //tvForgetPassword = (TextView) findViewById(R.id.tvForgetPassword);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -87,15 +74,6 @@ public class LoginPage extends AppCompatActivity {
 
     }
 
-    private void showToken(final String token) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mTokentv.setText(token);
-            }
-        });
-    }
-
     private void validateLoginInfo() {
         loginAccount = edtLoginAccount.getText().toString();
         loginPassword = edtLoginPassword.getText().toString();
@@ -115,6 +93,7 @@ public class LoginPage extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
                 pbLoginAcc.setVisibility(View.INVISIBLE);
                 tvErrorLoginBanner.setVisibility(View.INVISIBLE);
+                getToken();
                 sendToHomePage();
                 finish();
             }
@@ -137,6 +116,7 @@ public class LoginPage extends AppCompatActivity {
         startActivity(new Intent(LoginPage.this, RegisterAccountPage.class));
     }
 
+
     private void getToken() {
         // Create a thread.
         new Thread() {
@@ -152,7 +132,6 @@ public class LoginPage extends AppCompatActivity {
 
                     // Check whether the token is empty.
                     if (!TextUtils.isEmpty(token)) {
-                        showToken(token);
                         sendRegTokenToServer(token);
                     }
                 } catch (ApiException e) {

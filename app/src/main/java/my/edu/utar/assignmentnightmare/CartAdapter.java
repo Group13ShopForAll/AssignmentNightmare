@@ -31,7 +31,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-
+// Done by Felix
 public class CartAdapter extends FirebaseRecyclerAdapter<CartProduct, CartAdapter.myViewHolder> {
 
     private String currentUserId;

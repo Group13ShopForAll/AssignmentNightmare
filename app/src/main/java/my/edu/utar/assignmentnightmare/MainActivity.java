@@ -10,7 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+// Done by Felix
 public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN = 5000;

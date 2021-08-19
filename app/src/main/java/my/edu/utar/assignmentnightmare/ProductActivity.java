@@ -31,7 +31,7 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
+// Done by Jiun Lin & Felix
 public class ProductActivity extends AppCompatActivity {
 
     private DatabaseReference productRef, sellerRef, reff;
@@ -176,31 +176,31 @@ public class ProductActivity extends AppCompatActivity {
         });
 
 
-            btnBuyNow.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    if(count > Integer.parseInt(productStock)){
-                        Toast.makeText(ProductActivity.this, "Stock Insufficient", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        HashMap productMap = new HashMap();
-                        productMap.put("productName", productName);
-                        productMap.put("productDesc", productDesc);
-                        productMap.put("productStock", Integer.parseInt(productStock));
-                        productMap.put("productImgUri", productImgUri.toString());
-                        productMap.put("productQuantity", count);
-                        productMap.put("sellerid", sellerId);
-                        productMap.put("sellername", sellerUsername);
-                        Double totalsingle = Double.valueOf(count) * Double.valueOf(productPrice);
-                        productMap.put("productPrice", Double.valueOf(totalsingle));
-
-                        reff = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
-                        reff.child(productKey).updateChildren(productMap);
-
-                        finish();
-                    }
+        btnBuyNow.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(count > Integer.parseInt(productStock)){
+                    Toast.makeText(ProductActivity.this, "Stock Insufficient", Toast.LENGTH_SHORT).show();
                 }
-            });
+                else {
+                    HashMap productMap = new HashMap();
+                    productMap.put("productName", productName);
+                    productMap.put("productDesc", productDesc);
+                    productMap.put("productStock", Integer.parseInt(productStock));
+                    productMap.put("productImgUri", productImgUri.toString());
+                    productMap.put("productQuantity", count);
+                    productMap.put("sellerid", sellerId);
+                    productMap.put("sellername", sellerUsername);
+                    Double totalsingle = Double.valueOf(count) * Double.valueOf(productPrice);
+                    productMap.put("productPrice", Double.valueOf(totalsingle));
+
+                    reff = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getUid()).child("cart");
+                    reff.child(productKey).updateChildren(productMap);
+
+                    finish();
+                }
+            }
+        });
 
     }
 }

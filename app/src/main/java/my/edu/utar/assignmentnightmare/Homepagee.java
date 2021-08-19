@@ -46,7 +46,7 @@ import com.huawei.hms.push.HmsMessageService;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+ // Done by Felix & Jiun Lin
 public class Homepagee extends AppCompatActivity {
 
     ImageSlider imageSlider;

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+// Done by Felix
 public class ShippingFee extends AppCompatActivity {
 
     ImageView ship1,ship2,ship3,ship4,ship5,ship6;

@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
+// Done by Jiun Lin
 public class Profile extends AppCompatActivity {
 
     private ImageView btnUploadProduct, btnUpdateProfile, btnMyProduct;

@@ -19,12 +19,6 @@ import java.util.Date;
 
 public class DisplayOrderAdapter extends FirebaseRecyclerAdapter <OrderModel, DisplayOrderAdapter.myViewHolder> {
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
     public DisplayOrderAdapter(@NonNull FirebaseRecyclerOptions<OrderModel> options) {
         super(options);
     }

@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
 
 import java.util.List;
-
+// Done by Jiun Lin
 public class RegisterAccountPage extends AppCompatActivity {
 
     private EditText edtRegAcc, edtRegPassword, edtConfirmPassword;

@@ -31,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+// Done by Felix
 public class ShoppingCart extends AppCompatActivity {
 
     private RecyclerView rcvShopCart;

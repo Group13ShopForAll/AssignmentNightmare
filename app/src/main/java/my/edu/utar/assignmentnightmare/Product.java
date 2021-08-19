@@ -1,5 +1,6 @@
 package my.edu.utar.assignmentnightmare;
 
+// Done by Jiun Lin
 public class Product {
 
     String productName, productDesc;

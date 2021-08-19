@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
+// Done by Felix
 public class Checkout extends AppCompatActivity {
 
     TextView adress;

@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 import java.util.List;
-
+// Done by Felix
 public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ItemViewHolder>{
 
 
