@@ -95,6 +95,7 @@ public class RazorpayPayment extends AppCompatActivity implements PaymentResultL
 
     @Override
     public void onPaymentError(int i, String s) {
+        s = "Cancelled";
         //Display toast
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
 

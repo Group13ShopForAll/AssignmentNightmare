@@ -145,11 +145,6 @@ public class ShoppingCart extends AppCompatActivity {
             return false;
         });
 
-
-
-
-
-
     }
 
     public void refreshpage(){

@@ -19,7 +19,7 @@ android {
 
     signingConfigs {
         config {
-            storeFile file('C:\\Users\\User\\Desktop\\practical\\hms certificate\\certificate.jks')
+            storeFile file('C:\\Users\\User\\Desktop\\Certificate\\certificate.jks')
             storePassword '123123'
             keyPassword '123123'
             keyAlias 'key0'
